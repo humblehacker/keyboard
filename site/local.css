@@ -1,0 +1,89 @@
+/* BILLBOARD */
+
+a {
+	text-decoration: none;
+}
+
+#billboard, #footer, #features, #contact {
+	width: 980px;
+	margin: 0 auto 10px;
+	color: #76797c;
+	text-align: center;
+}
+
+#footer {
+	padding-top: 110px;
+	clear: both;
+}
+
+#billboard {
+	position: relative;
+	margin: 10px auto 0 auto;
+}
+
+#billboard h1 {
+	height: 45px;
+	margin: 48px auto 0px;
+	width: 670px;
+	background: url(images/kb/headline20081026.png) no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+#billboard h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+#features {
+	padding-top: 10px;
+}
+
+#features ul li a {
+	height: 155px;
+	width: 236px;
+	display: block;
+	margin-right: 10px;
+	background: url(images/feature_bg.png) no-repeat;
+	line-height: normal;
+}
+
+#features .feature_text {
+	padding-top: 10px;
+	margin-top: 5px;
+	font-size: 1.3em;
+	color: black;
+	line-height: 110%;
+	display: block;
+}
+
+#features .feature_subtext {
+	margin-top: 5px;
+	color: #76797c;
+	line-height: 110%;
+	display: block;
+}
+#features img {
+	margin-top: 5px;
+	border: 1px solid #76797c;
+}
+
+#features .last {
+	margin-right: 0;
+}
+
+#features .last img {
+	border: 0;
+	margin-top: 10px;
+}
+
+#features ul li {
+	float: left;
+}
+
+#contact {
+	padding-top: 25px;
+	clear: both;
+}
