@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" href="global.css" type="text/css" />
 	<link rel="stylesheet" href="local.css" type="text/css" />
-   <link rel="icon" type="image/png" href="favicon.png" />
+	<link rel="icon" type="image/png" href="/favicon.png" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>The Humble Hacker Keyboard</title>
 	<meta name="generator" content="TextMate http://macromates.com/" />
