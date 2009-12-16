@@ -1,0 +1,1559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://davids-macpro.local/%7Edavid/Schema/SourceKeys.rng" type="xml"?>
+<SourceKeys>
+
+    <!-- Mode Keys -->
+
+    <Key id="fn">
+        <Label>
+            <TopLeft>Fn</TopLeft>
+        </Label>
+        <ModeKey>Fn</ModeKey>
+    </Key>
+    <Key id="num">
+        <Label>
+            <TopLeft>Num</TopLeft>
+        </Label>
+        <ModeKey>Nm</ModeKey>
+    </Key>
+    <Key id="japan">
+        <Label>
+            <TopLeft>Japan</TopLeft>
+        </Label>
+        <ModeKey>Jp</ModeKey>
+    </Key>
+    <Key id="dvorak">
+        <Label>
+            <TopLeft>Dvorak</TopLeft>
+        </Label>
+        <ModeKey>Dv</ModeKey>
+    </Key>
+
+    <!-- Action Keys -->
+
+    <Key id="return">
+       <Label>
+           <TopLeft>Enter</TopLeft>
+       </Label>
+       <Usage id="Keyboard Return (ENTER)" />
+   </Key>
+   <Key id="esc">
+       <Label>
+           <TopLeft>Esc</TopLeft>
+       </Label>
+       <Usage id="Keyboard ESCAPE" />
+   </Key>
+   <Key id="backspace">
+       <Label>
+           <TopLeft>Back space</TopLeft>
+       </Label>
+       <Usage id="Keyboard DELETE (Backspace)" />
+   </Key>
+   <Key id="insert">
+       <Label>
+           <TopLeft>Insert</TopLeft>
+       </Label>
+       <Usage id="Keyboard Insert" />
+   </Key>
+    <Key id="delete">
+       <Label>
+           <TopLeft>Delete</TopLeft>
+       </Label>
+       <Usage id="Keyboard Delete Forward" />
+   </Key>
+   <Key id="space">
+       <Label>
+           <BottomLeft>Space</BottomLeft>
+       </Label>
+        <Usage id="Keyboard Spacebar" />
+   </Key>
+   <Key id="tab">
+       <Label>
+           <TopLeft>Tab</TopLeft>
+       </Label>
+       <Usage id="Keyboard Tab" />
+   </Key>
+   <Key id="home">
+       <Label>
+           <TopLeft>Home</TopLeft>
+       </Label>
+       <Usage id="Keyboard Home" />
+   </Key>
+   <Key id="end">
+       <Label>
+           <TopLeft>End</TopLeft>
+       </Label>
+       <Usage id="Keyboard End" />
+   </Key>
+   <Key id="page_up">
+       <Label>
+           <TopLeft>Pg Up</TopLeft>
+       </Label>
+       <Usage id="Keyboard PageUp" />
+   </Key>
+   <Key id="page_down">
+       <Label>
+           <TopLeft>Pg Dn</TopLeft>
+       </Label>
+       <Usage id="Keyboard PageDown" />
+   </Key>
+   <Key id="arrow_up">
+       <Label>
+           <TopLeft>{up}</TopLeft>
+       </Label>
+       <Usage id="Keyboard UpArrow" />
+   </Key>
+   <Key id="arrow_left">
+       <Label>
+           <TopLeft>{left}</TopLeft>
+       </Label>
+       <Usage id="Keyboard LeftArrow" />
+   </Key>
+   <Key id="arrow_down">
+       <Label>
+           <TopLeft>{down}</TopLeft>
+       </Label>
+       <Usage id="Keyboard DownArrow" />
+   </Key>
+   <Key id="arrow_right">
+       <Label>
+           <TopLeft>{right}</TopLeft>
+       </Label>
+       <Usage id="Keyboard RightArrow" />
+   </Key>
+   <Key id="caps">
+       <Label>
+           <TopLeft>Caps</TopLeft>
+       </Label>
+       <Usage id="Keyboard Caps Lock" />
+   </Key>
+   <Key id="app">
+       <Label>
+           <TopLeft>App</TopLeft>
+       </Label>
+       <Usage id="Keyboard Application" />
+   </Key>
+   <Key id="power">
+       <Label>
+           <TopLeft>Power</TopLeft>
+       </Label>
+       <Usage page="Generic Desktop" id="System Power Down" />
+   </Key>
+   <Key id="sleep">
+       <Label>
+           <TopLeft>Sleep</TopLeft>
+       </Label>
+       <Usage page="Generic Desktop" id="System Sleep" />
+   </Key>
+   <Key id="wake">
+       <Label>
+           <TopLeft>Wake</TopLeft>
+       </Label>
+       <Usage page="Generic Desktop" id="System Wake Up" />
+   </Key>
+   <Key id="print_screen">
+       <Label>
+           <TopLeft>Prt Sc</TopLeft>
+       </Label>
+       <Usage id="Keyboard PrintScreen" />
+   </Key>
+   <Key id="scroll_lock">
+       <Label>
+           <TopLeft>Scroll</TopLeft>
+       </Label>
+       <Usage id="Keyboard Scroll Lock" />
+   </Key>
+   <Key id="pause">
+       <Label>
+           <TopLeft>Pause</TopLeft>
+       </Label>
+       <Usage id="Keyboard Pause" />
+   </Key>
+   <Key id="cut">
+       <Label>
+           <TopLeft>Cut</TopLeft>
+       </Label>
+       <Usage id="Keyboard Cut" />
+   </Key>
+   <Key id="copy">
+       <Label>
+           <TopLeft>Copy</TopLeft>
+       </Label>
+       <Usage id="Keyboard Copy" />
+   </Key>
+   <Key id="paste">
+       <Label>
+           <TopLeft>Paste</TopLeft>
+       </Label>
+       <Usage id="Keyboard Paste" />
+   </Key>
+
+   <!-- Modifier Keys -->
+
+   <Key id="left_shift">
+       <Label> <BottomLeft>Left Shift</BottomLeft> </Label>
+       <Usage id="Keyboard LeftShift" />
+   </Key>
+   <Key id="left_ctrl">
+       <Label> <BottomLeft>Left Control</BottomLeft> </Label>
+       <Usage id="Keyboard LeftControl" />
+   </Key>
+   <Key id="left_alt">
+       <Label> <BottomLeft>Left Alt</BottomLeft> </Label>
+       <Usage id="Keyboard LeftAlt" />
+   </Key>
+   <Key id="left_gui">
+       <Label> <BottomLeft>Left GUI</BottomLeft> </Label>
+       <Usage id="Keyboard Left GUI" />
+   </Key>
+   <Key id="right_shift">
+       <Label> <BottomLeft>Right Shift</BottomLeft> </Label>
+       <Usage id="Keyboard RightShift" />
+   </Key>
+   <Key id="right_ctrl">
+       <Label> <BottomLeft>Right Control</BottomLeft> </Label>
+       <Usage id="Keyboard RightControl" />
+   </Key>
+   <Key id="right_alt">
+       <Label> <BottomLeft>Right Alt</BottomLeft> </Label>
+       <Usage id="Keyboard RightAlt" />
+   </Key>
+   <Key id="right_gui">
+       <Label> <BottomLeft>Right GUI</BottomLeft> </Label>
+       <Usage id="Keyboard Right GUI" />
+   </Key>
+   <Key id="left_opt">
+       <Label> <BottomLeft>Left Option</BottomLeft> </Label>
+       <Usage id="Keyboard LeftAlt" />
+   </Key>
+   <Key id="left_cmd">
+       <Label> <BottomLeft>Left Command</BottomLeft> </Label>
+       <Usage id="Keyboard Left GUI" />
+   </Key>
+   <Key id="right_opt">
+       <Label> <BottomLeft>Right Option</BottomLeft> </Label>
+       <Usage id="Keyboard RightAlt" />
+   </Key>
+   <Key id="right_cmd">
+       <Label> <BottomLeft>Right Command</BottomLeft> </Label>
+       <Usage id="Keyboard Right GUI" />
+   </Key>
+
+   <!-- Function Keys -->
+
+    <Key id="f1">
+        <Label>
+            <TopLeft>F1</TopLeft>
+        </Label>
+        <Usage id="Keyboard F1" />
+    </Key>
+    <Key id="f2">
+        <Label>
+            <TopLeft>F2</TopLeft>
+        </Label>
+        <Usage id="Keyboard F2" />
+    </Key>
+    <Key id="f3">
+        <Label>
+            <TopLeft>F3</TopLeft>
+        </Label>
+        <Usage id="Keyboard F3" />
+    </Key>
+    <Key id="f4">
+        <Label>
+            <TopLeft>F4</TopLeft>
+        </Label>
+        <Usage id="Keyboard F4" />
+    </Key>
+    <Key id="f5">
+        <Label>
+            <TopLeft>F5</TopLeft>
+        </Label>
+        <Usage id="Keyboard F5" />
+    </Key>
+    <Key id="f6">
+        <Label>
+            <TopLeft>F6</TopLeft>
+        </Label>
+        <Usage id="Keyboard F6" />
+    </Key>
+    <Key id="f7">
+        <Label>
+            <TopLeft>F7</TopLeft>
+        </Label>
+        <Usage id="Keyboard F7" />
+    </Key>
+    <Key id="f8">
+        <Label>
+            <TopLeft>F8</TopLeft>
+        </Label>
+        <Usage id="Keyboard F8" />
+    </Key>
+    <Key id="f9">
+        <Label>
+            <TopLeft>F9</TopLeft>
+        </Label>
+        <Usage id="Keyboard F9" />
+    </Key>
+    <Key id="f10">
+        <Label>
+            <TopLeft>F10</TopLeft>
+        </Label>
+        <Usage id="Keyboard F10" />
+    </Key>
+    <Key id="f11">
+        <Label>
+            <TopLeft>F11</TopLeft>
+        </Label>
+        <Usage id="Keyboard F11" />
+    </Key>
+    <Key id="f12">
+        <Label>
+            <TopLeft>F12</TopLeft>
+        </Label>
+        <Usage id="Keyboard F12" />
+    </Key>
+    <Key id="f13">
+        <Label>
+            <TopLeft>F13</TopLeft>
+        </Label>
+        <Usage id="Keyboard F13" />
+    </Key>
+    <Key id="f14">
+        <Label>
+            <TopLeft>F14</TopLeft>
+        </Label>
+        <Usage id="Keyboard F14" />
+    </Key>
+    <Key id="f15">
+        <Label>
+            <TopLeft>F15</TopLeft>
+        </Label>
+        <Usage id="Keyboard F15" />
+    </Key>
+    <Key id="f16">
+        <Label>
+            <TopLeft>F16</TopLeft>
+        </Label>
+        <Usage id="Keyboard F16" />
+    </Key>
+    <Key id="f17">
+        <Label>
+            <TopLeft>F17</TopLeft>
+        </Label>
+        <Usage id="Keyboard F17" />
+    </Key>
+    <Key id="f18">
+        <Label>
+            <TopLeft>F18</TopLeft>
+        </Label>
+        <Usage id="Keyboard F18" />
+    </Key>
+    <Key id="f19">
+        <Label>
+            <TopLeft>F19</TopLeft>
+        </Label>
+        <Usage id="Keyboard F19" />
+    </Key>
+    <Key id="f20">
+        <Label>
+            <TopLeft>F20</TopLeft>
+        </Label>
+        <Usage id="Keyboard F20" />
+    </Key>
+    <Key id="f21">
+        <Label>
+            <TopLeft>F21</TopLeft>
+        </Label>
+        <Usage id="Keyboard F21" />
+    </Key>
+    <Key id="f22">
+        <Label>
+            <TopLeft>F22</TopLeft>
+        </Label>
+        <Usage id="Keyboard F22" />
+    </Key>
+    <Key id="f23">
+        <Label>
+            <TopLeft>F23</TopLeft>
+        </Label>
+        <Usage id="Keyboard F23" />
+    </Key>
+    <Key id="f24">
+        <Label>
+            <TopLeft>F24</TopLeft>
+        </Label>
+        <Usage id="Keyboard F24" />
+    </Key>
+
+    <!-- Keypad Keys -->
+
+    <Key id="keypad_0">
+        <Label>
+            <TopLeft>0</TopLeft>
+        </Label>
+        <Usage id="Keypad 0 and Insert" />
+    </Key>
+    <Key id="keypad_1">
+        <Label>
+            <TopLeft>1</TopLeft>
+        </Label>
+        <Usage id="Keypad 1 and End" />
+    </Key>
+    <Key id="keypad_2">
+        <Label>
+            <TopLeft>2</TopLeft>
+        </Label>
+        <Usage id="Keypad 2 and Down Arrow" />
+    </Key>
+    <Key id="keypad_3">
+        <Label>
+            <TopLeft>3</TopLeft>
+        </Label>
+        <Usage id="Keypad 3 and PageDn" />
+    </Key>
+    <Key id="keypad_4">
+        <Label>
+            <TopLeft>4</TopLeft>
+        </Label>
+        <Usage id="Keypad 4 and Left Arrow" />
+    </Key>
+    <Key id="keypad_5">
+        <Label>
+            <TopLeft>5</TopLeft>
+        </Label>
+        <Usage id="Keypad 5" />
+    </Key>
+    <Key id="keypad_6">
+        <Label>
+            <TopLeft>6</TopLeft>
+        </Label>
+        <Usage id="Keypad 6 and Right Arrow" />
+    </Key>
+    <Key id="keypad_7">
+        <Label>
+            <TopLeft>7</TopLeft>
+        </Label>
+        <Usage id="Keypad 7 and Home" />
+    </Key>
+    <Key id="keypad_8">
+        <Label>
+            <TopLeft>8</TopLeft>
+        </Label>
+        <Usage id="Keypad 8 and Up Arrow" />
+    </Key>
+    <Key id="keypad_9">
+        <Label>
+            <TopLeft>9</TopLeft>
+        </Label>
+        <Usage id="Keypad 9 and PageUp" />
+    </Key>
+    <Key id="num_lock">
+        <Label>
+            <TopLeft>N. Lock</TopLeft>
+        </Label>
+        <Usage id="Keypad Num Lock and Clear" />
+    </Key>
+    <Key id="keypad_enter">
+        <Label>
+            <TopLeft>Enter</TopLeft>
+        </Label>
+        <Usage id="Keypad ENTER" />
+    </Key>
+    <Key id="keypad_slash">
+        <Label>
+            <TopLeft>/</TopLeft>
+        </Label>
+        <Usage id="Keypad /" />
+    </Key>
+    <Key id="keypad_asterisk">
+        <Label>
+            <TopLeft>*</TopLeft>
+        </Label>
+        <Usage id="Keypad *" />
+    </Key>
+    <Key id="keypad_minus">
+        <Label>
+            <TopLeft>-</TopLeft>
+        </Label>
+        <Usage id="Keypad -" />
+    </Key>
+    <Key id="keypad_plus">
+        <Label>
+            <TopLeft>+</TopLeft>
+        </Label>
+        <Usage id="Keypad +" />
+    </Key>
+    <Key id="keypad_point">
+        <Label>
+            <TopLeft>.</TopLeft>
+        </Label>
+        <Usage id="Keypad . and Delete" />
+    </Key>
+
+    <!-- Consumer Control Keys -->
+
+    <Key id="tunes">
+        <Label>
+            <TopLeft>{tunes}</TopLeft>
+        </Label>
+        <Usage page="Consumer Control" id="AL Consumer Control Configuration" />
+    </Key>
+    <Key id="web">
+        <Label>
+            <TopLeft>{web}</TopLeft>
+        </Label>
+        <Usage page="Consumer Control" id="AC Home" />
+    </Key>
+    <Key id="mail">
+        <Label>
+            <TopLeft>{mail}</TopLeft>
+        </Label>
+        <Usage page="Consumer Control" id="AL Email Reader" />
+    </Key>
+
+    <!-- International Keys -->
+
+    <Key id="intl_lesser">
+        <Label>
+            <TopLeft>&lt;</TopLeft>
+        </Label>
+        <Usage id="Keyboard Non-US \ and |" />
+    </Key>
+    <Key id="intl_greater">
+        <Label>
+            <TopLeft>&gt;</TopLeft>
+        </Label>
+        <MacroKey>
+            <Modifier id="Right Shift" />
+            <Usage id="Keyboard Non-US \ and |" />
+        </MacroKey>
+    </Key>
+    <Key id="intl_broken_pipe">
+        <Label>
+            <TopLeft>¦</TopLeft>
+        </Label>
+        <MacroKey>
+            <Modifier id="Right Alt" />
+            <Usage id="Keyboard Non-US \ and |" />
+        </MacroKey>
+    </Key>
+    <Key id="intl_pipe">
+        <Label>
+            <TopLeft>|</TopLeft>
+        </Label>
+        <MacroKey>
+            <Modifier id="Right Shift" />
+            <Modifier id="Right Alt" />
+            <Usage id="Keyboard Non-US \ and |" />
+        </MacroKey>
+    </Key>
+
+    <!-- Japanese Keys -->
+
+    <Key id="jp_grave">
+        <Label>
+            <TopLeft>半角/</TopLeft>
+            <BottomLeft>全角</BottomLeft>
+        </Label>
+        <Usage id="Keyboard Grave Accent and Tilde" />
+    </Key>
+    <Key id="jp_1">
+        <Label>
+            <TopLeft>!</TopLeft>
+            <BottomLeft>1</BottomLeft>
+            <BottomRight>ぬ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 1 and !" />
+    </Key>
+    <Key id="jp_2">
+        <Label>
+            <TopLeft>@</TopLeft>
+            <BottomLeft>2</BottomLeft>
+            <BottomRight>ふ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 2 and @" />
+    </Key>
+    <Key id="jp_3">
+        <Label>
+            <TopLeft>#</TopLeft>
+            <BottomLeft>3</BottomLeft>
+            <TopRight>ぁ</TopRight>
+            <BottomRight>あ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 3 and #" />
+    </Key>
+    <Key id="jp_4">
+        <Label>
+            <TopLeft>$</TopLeft>
+            <BottomLeft>4</BottomLeft>
+            <TopRight>ぅ</TopRight>
+            <BottomRight>ぅ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 4 and $" />
+    </Key>
+    <Key id="jp_5">
+        <Label>
+            <TopLeft>%</TopLeft>
+            <BottomLeft>5</BottomLeft>
+            <TopRight>ぇ</TopRight>
+            <BottomRight>え</BottomRight>
+        </Label>
+        <Usage id="Keyboard 5 and %" />
+    </Key>
+    <Key id="jp_6">
+        <Label>
+            <TopLeft>^</TopLeft>
+            <BottomLeft>6</BottomLeft>
+            <TopRight>ぉ</TopRight>
+            <BottomRight>お</BottomRight>
+        </Label>
+        <Usage id="Keyboard 6 and ^" />
+    </Key>
+    <Key id="jp_7">
+        <Label>
+            <TopLeft>&amp;</TopLeft>
+            <BottomLeft>7</BottomLeft>
+            <TopRight>ゃ</TopRight>
+            <BottomRight>や</BottomRight>
+        </Label>
+        <Usage id="Keyboard 7 and &amp;" />
+    </Key>
+    <Key id="jp_8">
+        <Label>
+            <TopLeft>*</TopLeft>
+            <BottomLeft>8</BottomLeft>
+            <TopRight>ゅ</TopRight>
+            <BottomRight>ゆ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 8 and *" />
+    </Key>
+    <Key id="jp_9">
+        <Label>
+            <TopLeft>(</TopLeft>
+            <BottomLeft>9</BottomLeft>
+            <TopRight>ょ</TopRight>
+            <BottomRight>よ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 9 and (" />
+    </Key>
+    <Key id="jp_0">
+        <Label>
+            <TopLeft>)</TopLeft>
+            <BottomLeft>0</BottomLeft>
+            <TopRight>を</TopRight>
+            <BottomRight>わ</BottomRight>
+        </Label>
+        <Usage id="Keyboard 0 and )" />
+    </Key>
+    <Key id="jp_dash">
+        <Label>
+            <TopLeft>=</TopLeft>
+            <BottomLeft>-</BottomLeft>
+            <TopRight>£</TopRight>
+            <BottomRight>ほ</BottomRight>
+        </Label>
+        <Usage id="Keyboard - and _" />
+    </Key>
+    <Key id="jp_equal">
+        <Label>
+            <TopLeft>__</TopLeft>
+            <BottomLeft>^</BottomLeft>
+            <TopRight>々</TopRight>
+            <BottomRight>ㇸ</BottomRight>
+        </Label>
+        <Usage id="Keyboard = and +" />
+    </Key>
+    <Key id="jp_intl3">
+        <Label>
+            <TopLeft>¦</TopLeft>
+            <BottomLeft>¥</BottomLeft>
+            <TopRight>￢</TopRight>
+            <BottomRight>–</BottomRight>
+        </Label>
+        <Usage id="Keyboard International3" />
+    </Key>
+    <Key id="jp_q">
+        <Label>
+            <TopLeft>Q</TopLeft>
+            <TopRight>だ</TopRight>
+            <BottomRight>た</BottomRight>
+        </Label>
+        <Usage id="Keyboard q and Q" />
+    </Key>
+    <Key id="jp_w">
+        <Label>
+            <TopLeft>W</TopLeft>
+            <TopRight>で</TopRight>
+            <BottomRight>て</BottomRight>
+        </Label>
+        <Usage id="Keyboard w and W" />
+    </Key>
+    <Key id="jp_e">
+        <Label>
+            <TopLeft>E</TopLeft>
+            <TopRight>ぃ</TopRight>
+            <BottomRight>い</BottomRight>
+        </Label>
+        <Usage id="Keyboard e and E" />
+    </Key>
+    <Key id="jp_r">
+        <Label>
+            <TopLeft>R</TopLeft>
+            <TopRight>ず</TopRight>
+            <BottomRight>す</BottomRight>
+        </Label>
+        <Usage id="Keyboard r and R" />
+    </Key>
+    <Key id="jp_t">
+        <Label>
+            <TopLeft>T</TopLeft>
+            <TopRight>が</TopRight>
+            <BottomRight>か</BottomRight>
+        </Label>
+        <Usage id="Keyboard t and T" />
+    </Key>
+    <Key id="jp_y">
+        <Label>
+            <TopLeft>Y</TopLeft>
+            <BottomRight>ん</BottomRight>
+        </Label>
+        <Usage id="Keyboard y and Y" />
+    </Key>
+    <Key id="jp_u">
+        <Label>
+            <TopLeft>U</TopLeft>
+            <BottomRight>な</BottomRight>
+        </Label>
+        <Usage id="Keyboard u and U" />
+    </Key>
+    <Key id="jp_i">
+        <Label>
+            <TopLeft>I</TopLeft>
+            <BottomRight>に</BottomRight>
+        </Label>
+        <Usage id="Keyboard i and I" />
+    </Key>
+    <Key id="jp_o">
+        <Label>
+            <TopLeft>O</TopLeft>
+            <BottomRight>ら</BottomRight>
+        </Label>
+        <Usage id="Keyboard o and O" />
+    </Key>
+    <Key id="jp_p">
+        <Label>
+            <TopLeft>P</TopLeft>
+            <TopRight>『</TopRight>
+            <BottomRight>せ</BottomRight>
+        </Label>
+        <Usage id="Keyboard p and P" />
+    </Key>
+    <Key id="jp_leftbrace">
+        <Label>
+            <TopLeft>`</TopLeft>
+            <BottomLeft>@</BottomLeft>
+            <BottomRight>゛</BottomRight>
+        </Label>
+        <Usage id="Keyboard [ and {" />
+    </Key>
+    <Key id="jp_rightbrace">
+        <Label>
+            <TopLeft>{</TopLeft>
+            <BottomLeft>[</BottomLeft>
+            <TopRight>「</TopRight>
+            <BottomRight>゜</BottomRight>
+        </Label>
+        <Usage id="Keyboard ] and }" />
+    </Key>
+    <Key id="jp_backslash">
+        <Label>
+            <TopLeft>}</TopLeft>
+            <BottomLeft>]</BottomLeft>
+            <TopRight>」</TopRight>
+            <BottomRight>む</BottomRight>
+        </Label>
+        <Usage id="Keyboard \ and |" />
+    </Key>
+    <Key id="jp_a">
+        <Label>
+            <TopLeft>A</TopLeft>
+            <BottomRight>ち</BottomRight>
+        </Label>
+        <Usage id="Keyboard a and A" />
+    </Key>
+    <Key id="jp_s">
+        <Label>
+            <TopLeft>S</TopLeft>
+            <BottomRight>と</BottomRight>
+        </Label>
+        <Usage id="Keyboard s and S" />
+    </Key>
+    <Key id="jp_d">
+        <Label>
+            <TopLeft>D</TopLeft>
+            <BottomRight>し</BottomRight>
+        </Label>
+        <Usage id="Keyboard d and D" />
+    </Key>
+    <Key id="jp_f">
+        <Label>
+            <TopLeft>F</TopLeft>
+            <BottomRight>は</BottomRight>
+        </Label>
+        <Usage id="Keyboard f and F" />
+    </Key>
+    <Key id="jp_g">
+        <Label>
+            <TopLeft>G</TopLeft>
+            <BottomRight>き</BottomRight>
+        </Label>
+        <Usage id="Keyboard g and G" />
+    </Key>
+    <Key id="jp_h">
+        <Label>
+            <TopLeft>H</TopLeft>
+            <BottomRight>く</BottomRight>
+        </Label>
+        <Usage id="Keyboard h and H" />
+    </Key>
+    <Key id="jp_j">
+        <Label>
+            <TopLeft>J</TopLeft>
+            <BottomRight>ま</BottomRight>
+        </Label>
+        <Usage id="Keyboard j and J" />
+    </Key>
+    <Key id="jp_k">
+        <Label>
+            <TopLeft>K</TopLeft>
+            <BottomRight>の</BottomRight>
+        </Label>
+        <Usage id="Keyboard k and K" />
+    </Key>
+    <Key id="jp_l">
+        <Label>
+            <TopLeft>L</TopLeft>
+            <BottomRight>り</BottomRight>
+        </Label>
+        <Usage id="Keyboard l and L" />
+    </Key>
+    <Key id="jp_semicolon">
+        <Label>
+            <TopLeft>+</TopLeft>
+            <BottomLeft>;</BottomLeft>
+            <TopRight>』</TopRight>
+            <BottomRight>れ</BottomRight>
+        </Label>
+        <Usage id="Keyboard ; and :" />
+    </Key>
+    <Key id="jp_apostrophe">
+        <Label>
+            <TopLeft>*</TopLeft>
+            <BottomLeft>:</BottomLeft>
+            <TopRight>ヶ</TopRight>
+            <BottomRight>け</BottomRight>
+        </Label>
+        <Usage id="Keyboard &apos; and &quot;" />
+    </Key>
+    <Key id="jp_z">
+        <Label>
+            <TopLeft>Z</TopLeft>
+            <TopRight>っ</TopRight>
+            <BottomRight>つ</BottomRight>
+        </Label>
+        <Usage id="Keyboard z and Z" />
+    </Key>
+    <Key id="jp_x">
+        <Label>
+            <TopLeft>X</TopLeft>
+            <BottomRight>さ</BottomRight>
+        </Label>
+        <Usage id="Keyboard x and X" />
+    </Key>
+    <Key id="jp_c">
+        <Label>
+            <TopLeft>C</TopLeft>
+            <BottomRight>そ</BottomRight>
+        </Label>
+        <Usage id="Keyboard c and C" />
+    </Key>
+    <Key id="jp_v">
+        <Label>
+            <TopLeft>V</TopLeft>
+            <BottomRight>ひ</BottomRight>
+        </Label>
+        <Usage id="Keyboard v and V" />
+    </Key>
+    <Key id="jp_b">
+        <Label>
+            <TopLeft>B</TopLeft>
+            <BottomRight>こ</BottomRight>
+        </Label>
+        <Usage id="Keyboard b and B" />
+    </Key>
+    <Key id="jp_n">
+        <Label>
+            <TopLeft>N</TopLeft>
+            <BottomRight>み</BottomRight>
+        </Label>
+        <Usage id="Keyboard n and N" />
+    </Key>
+    <Key id="jp_m">
+        <Label>
+            <TopLeft>M</TopLeft>
+            <BottomRight>も</BottomRight>
+        </Label>
+        <Usage id="Keyboard m and M" />
+    </Key>
+    <Key id="jp_comma">
+        <Label>
+            <TopLeft>&lt;</TopLeft>
+            <BottomLeft>,</BottomLeft>
+            <TopRight>、</TopRight>
+            <BottomRight>ね</BottomRight>
+        </Label>
+        <Usage id="Keyboard , and &lt;" />
+    </Key>
+    <Key id="jp_period">
+        <Label>
+            <TopLeft>&gt;</TopLeft>
+            <BottomLeft>.</BottomLeft>
+            <TopRight>。</TopRight>
+            <BottomRight>る</BottomRight>
+        </Label>
+        <Usage id="Keyboard . and &gt;" />
+    </Key>
+    <Key id="jp_slash">
+        <Label>
+            <TopLeft>?</TopLeft>
+            <BottomLeft>/</BottomLeft>
+            <TopRight>・</TopRight>
+            <BottomRight>め</BottomRight>
+        </Label>
+        <Usage id="Keyboard / and ?" />
+    </Key>
+    <Key id="jp_intl1">
+        <Label>
+            <TopLeft>_</TopLeft>
+            <BottomLeft>\</BottomLeft>
+            <TopRight>|</TopRight>
+            <BottomRight>ろ</BottomRight>
+        </Label>
+        <Usage id="Keyboard International1" />
+    </Key>
+    <Key id="jp_intl2">
+        <Label>
+            <TopLeft>カタカナ ひらがな ローマ字</TopLeft>
+        </Label>
+        <Usage id="Keyboard International2" />
+    </Key>
+    <Key id="jp_capslock">
+        <Label>
+            <TopLeft>Caps</TopLeft>
+            <BottomLeft>英数 漢字番号</BottomLeft>
+        </Label>
+        <Usage id="Keyboard Caps Lock" />
+    </Key>
+    <Key id="jp_intl5">
+        <Label>
+            <TopLeft>無変換</TopLeft>
+        </Label>
+        <Usage id="Keyboard International5" />
+    </Key>
+    <Key id="jp_intl4">
+        <Label>
+            <TopLeft>前侯補 変換 (次侯補) 侯補</TopLeft>
+        </Label>
+        <Usage id="Keyboard International4" />
+    </Key>
+
+    <!-- Custom Keys -->
+
+    <Key id="shuffle">
+        <Label>
+            <TopLeft>Shuffle</TopLeft>
+        </Label>
+     <MacroKey><Modifier id="Left Alt" /><Usage id="Keyboard Tab" /></MacroKey>
+    </Key>
+    <Key id="desktop">
+        <Label>
+            <TopLeft>Desktop</TopLeft>
+        </Label>
+        <MacroKey><Modifier id="Left GUI" /><Usage id="Keyboard d and D" /></MacroKey>
+    </Key>
+    <Key id="keypad_00">
+        <Label>
+            <TopLeft>00</TopLeft>
+        </Label>
+        <Macro>
+            <MacroKey><Usage id="Keypad 0 and Insert" /></MacroKey>
+            <MacroKey><Usage id="Keypad 0 and Insert" /></MacroKey>
+        </Macro>
+    </Key>
+    <Key id="->">
+        <Label> <BottomLeft>-></BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Usage id="Keyboard - and _" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard . and >" /></MacroKey>
+        </Macro>
+    </Key>
+    <Key id="::">
+        <Label> <BottomLeft>::</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard ; and :" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard ; and :" /></MacroKey>
+        </Macro>
+    </Key>
+    <Key id="//">
+        <Label> <BottomLeft>//</BottomLeft> </Label>
+        <Macro>
+            <Usage id="Keyboard / and ?" />
+            <Usage id="Keyboard / and ?" />
+        </Macro>
+    </Key>
+    <Key id="==">
+        <Label> <BottomLeft>==</BottomLeft> </Label>
+        <Macro>
+            <Usage id="Keyboard = and +" />
+            <Usage id="Keyboard = and +" />
+        </Macro>
+    </Key>
+    <Key id="!=">
+        <Label> <BottomLeft>!=</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard 1 and !" /></MacroKey>
+            <Usage id="Keyboard = and +" />
+        </Macro>
+    </Key>
+    <Key id="&lt;=">
+        <Label> <BottomLeft>&lt;=</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard , and &lt;" /></MacroKey>
+            <Usage id="Keyboard = and +" />
+        </Macro>
+    </Key>
+    <Key id="&gt;=">
+        <Label> <BottomLeft>&gt;=</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard . and &gt;" /></MacroKey>
+            <Usage id="Keyboard = and +" />
+        </Macro>
+    </Key>
+    <Key id="+=">
+        <Label> <BottomLeft>+=</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard = and +" /></MacroKey>
+            <Usage id="Keyboard = and +" />
+        </Macro>
+    </Key>
+    <Key id="-=">
+        <Label> <BottomLeft>-=</BottomLeft> </Label>
+        <Macro>
+            <Usage id="Keyboard - and _" />
+            <Usage id="Keyboard = and +" />
+        </Macro>
+    </Key>
+    <Key id="++">
+        <Label> <BottomLeft>++</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard = and +" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard = and +" /></MacroKey>
+        </Macro>
+    </Key>
+    <Key id="--">
+        <Label> <BottomLeft>--</BottomLeft> </Label>
+        <Macro>
+            <Usage id="Keyboard - and _" />
+            <Usage id="Keyboard - and _" />
+        </Macro>
+    </Key>
+    <Key id="typematrix">
+        <Macro>
+            <MacroKey><Modifier id="Right Shift" /><Usage id="Keyboard t and T" /></MacroKey>
+            <MacroKey><Usage id="Keyboard y and Y" /></MacroKey>
+            <MacroKey><Usage id="Keyboard p and P" /></MacroKey>
+            <MacroKey><Usage id="Keyboard e and E" /></MacroKey>
+            <MacroKey><Modifier id="Right Shift" /><Usage id="Keyboard m and M" /></MacroKey>
+            <MacroKey><Usage id="Keyboard a and A" /></MacroKey>
+            <MacroKey><Usage id="Keyboard t and T" /></MacroKey>
+            <MacroKey><Usage id="Keyboard r and R" /></MacroKey>
+            <MacroKey><Usage id="Keyboard i and I" /></MacroKey>
+            <MacroKey><Usage id="Keyboard x and X" /></MacroKey>
+            <MacroKey><Usage id="Keyboard Spacebar" /></MacroKey>
+            <MacroKey><Usage id="Keyboard 2 and @" /></MacroKey>
+            <MacroKey><Usage id="Keyboard 0 and )" /></MacroKey>
+            <MacroKey><Usage id="Keyboard 3 and #" /></MacroKey>
+            <MacroKey><Usage id="Keyboard 0 and )" /></MacroKey>
+            <MacroKey><Usage id="Keyboard Spacebar" /></MacroKey>
+            <MacroKey><Modifier id="Right Shift" /><Usage id="Keyboard p and P" /></MacroKey>
+            <MacroKey><Usage id="Keyboard r and R" /></MacroKey>
+            <MacroKey><Usage id="Keyboard o and O" /></MacroKey>
+            <MacroKey><Usage id="Keyboard f and F" /></MacroKey>
+            <MacroKey><Usage id="Keyboard e and E" /></MacroKey>
+            <MacroKey><Usage id="Keyboard s and S" /></MacroKey>
+            <MacroKey><Usage id="Keyboard s and S" /></MacroKey>
+            <MacroKey><Usage id="Keyboard i and I" /></MacroKey>
+            <MacroKey><Usage id="Keyboard o and O" /></MacroKey>
+            <MacroKey><Usage id="Keyboard n and N" /></MacroKey>
+            <MacroKey><Usage id="Keyboard a and A" /></MacroKey>
+            <MacroKey><Usage id="Keyboard l and L" /></MacroKey>
+        </Macro>
+    </Key>
+
+    <!-- The rest -->
+
+    <Key id="!">
+        <Label> <BottomLeft>!</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 1 and !" /> </MacroKey>
+    </Key>
+    <Key id="&quot;">
+        <Label> <BottomLeft>&quot;</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard &apos; and &quot;" /> </MacroKey>
+    </Key>
+    <Key id="#">
+        <Label> <BottomLeft>#</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 3 and #" /> </MacroKey>
+    </Key>
+    <Key id="$">
+        <Label> <BottomLeft>$</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 4 and $" /> </MacroKey>
+    </Key>
+    <Key id="%">
+        <Label> <BottomLeft>%</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 5 and %" /> </MacroKey>
+    </Key>
+    <Key id="&amp;">
+        <Label> <BottomLeft>&amp;</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 7 and &amp;" /> </MacroKey>
+    </Key>
+    <Key id="&apos;">
+        <Label>
+            <TopLeft>&quot;</TopLeft>
+            <BottomLeft>&apos;</BottomLeft>
+        </Label>
+        <Usage id="Keyboard &apos; and &quot;" />
+    </Key>
+    <Key id="(">
+        <Label> <BottomLeft>(</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard 9 and (" /></MacroKey>
+    </Key>
+    <Key id=")">
+        <Label> <BottomLeft>)</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard 0 and )" /></MacroKey>
+    </Key>
+    <Key id="*">
+        <Label> <BottomLeft>*</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 8 and *" /> </MacroKey>
+    </Key>
+    <Key id="+">
+        <Label> <BottomLeft>+</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard = and +" /> </MacroKey>
+    </Key>
+    <Key id=",">
+        <Label>
+            <TopLeft>&lt;</TopLeft>
+            <BottomLeft>,</BottomLeft>
+        </Label>
+        <Usage id="Keyboard , and &lt;" />
+    </Key>
+    <Key id="-">
+        <Label>
+            <TopLeft>__</TopLeft>
+            <BottomLeft>-</BottomLeft>
+        </Label>
+        <Usage id="Keyboard - and _" />
+    </Key>
+    <Key id=".">
+        <Label>
+            <TopLeft>&gt;</TopLeft>
+            <BottomLeft>.</BottomLeft>
+        </Label>
+        <Usage id="Keyboard . and &gt;" />
+    </Key>
+    <Key id="/">
+        <Label>
+            <TopLeft>?</TopLeft>
+            <BottomLeft>/</BottomLeft>
+        </Label>
+        <Usage id="Keyboard / and ?" />
+    </Key>
+    <Key id="0">
+        <Label>
+            <TopLeft>)</TopLeft>
+            <BottomLeft>0</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 0 and )" />
+    </Key>
+    <Key id="1">
+        <Label>
+            <TopLeft>!</TopLeft>
+            <BottomLeft>1</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 1 and !" />
+    </Key>
+    <Key id="2">
+        <Label>
+            <TopLeft>@</TopLeft>
+            <BottomLeft>2</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 2 and @" />
+    </Key>
+    <Key id="3">
+        <Label>
+            <TopLeft>#</TopLeft>
+            <BottomLeft>3</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 3 and #" />
+    </Key>
+    <Key id="4">
+        <Label>
+            <TopLeft>$</TopLeft>
+            <BottomLeft>4</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 4 and $" />
+    </Key>
+    <Key id="5">
+        <Label>
+            <TopLeft>%</TopLeft>
+            <BottomLeft>5</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 5 and %" />
+    </Key>
+    <Key id="6">
+        <Label>
+            <TopLeft>^</TopLeft>
+            <BottomLeft>6</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 6 and ^" />
+    </Key>
+    <Key id="7">
+        <Label>
+            <TopLeft>&amp;</TopLeft>
+            <BottomLeft>7</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 7 and &amp;" />
+    </Key>
+    <Key id="8">
+        <Label>
+            <TopLeft>*</TopLeft>
+            <BottomLeft>8</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 8 and *" />
+    </Key>
+    <Key id="9">
+        <Label>
+            <TopLeft>(</TopLeft>
+            <BottomLeft>9</BottomLeft>
+        </Label>
+        <Usage id="Keyboard 9 and (" />
+    </Key>
+    <Key id=":">
+        <Label> <BottomLeft>:</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard ; and :" />
+            </MacroKey>
+    </Key>
+    <Key id=";">
+        <Label>
+            <TopLeft>:</TopLeft>
+            <BottomLeft>;</BottomLeft>
+        </Label>
+        <Usage id="Keyboard ; and :" />
+    </Key>
+    <Key id="&lt;">
+        <Label> <BottomLeft>&lt;</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard , and &lt;" /> </MacroKey>
+    </Key>
+    <Key id="=">
+        <Label>
+            <TopLeft>+</TopLeft>
+            <BottomLeft>=</BottomLeft>
+        </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard = and +" /> </MacroKey>
+    </Key>
+    <Key id="&gt;">
+        <Label> <BottomLeft>&gt;</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard . and &gt;" /> </MacroKey>
+    </Key>
+    <Key id="?">
+        <Label> <BottomLeft>?</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard / and ?" /> </MacroKey>
+    </Key>
+    <Key id="@">
+        <Label> <BottomLeft>@</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard 2 and @" /> </MacroKey>
+    </Key>
+    <Key id="A">
+        <Label> <BottomLeft>A</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard a and A" /> </MacroKey>
+    </Key>
+    <Key id="B">
+        <Label> <BottomLeft>B</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard b and B" /> </MacroKey>
+    </Key>
+    <Key id="C">
+        <Label> <BottomLeft>C</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard c and C" /> </MacroKey>
+    </Key>
+    <Key id="D">
+        <Label> <BottomLeft>D</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard d and D" /> </MacroKey>
+    </Key>
+    <Key id="E">
+        <Label> <BottomLeft>E</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard e and E" /> </MacroKey>
+    </Key>
+    <Key id="F">
+        <Label> <BottomLeft>F</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard f and F" /> </MacroKey>
+    </Key>
+    <Key id="G">
+        <Label> <BottomLeft>G</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard g and G" /> </MacroKey>
+    </Key>
+    <Key id="H">
+        <Label> <BottomLeft>H</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard h and H" /> </MacroKey>
+    </Key>
+    <Key id="I">
+        <Label> <BottomLeft>I</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard i and I" /> </MacroKey>
+    </Key>
+    <Key id="J">
+        <Label> <BottomLeft>J</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard j and J" /> </MacroKey>
+    </Key>
+    <Key id="K">
+        <Label> <BottomLeft>K</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard k and K" /> </MacroKey>
+    </Key>
+    <Key id="L">
+        <Label> <BottomLeft>L</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard l and L" /> </MacroKey>
+    </Key>
+    <Key id="M">
+        <Label> <BottomLeft>M</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard m and M" /> </MacroKey>
+    </Key>
+    <Key id="N">
+        <Label> <BottomLeft>N</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard n and N" /> </MacroKey>
+    </Key>
+    <Key id="O">
+        <Label> <BottomLeft>O</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard o and O" /> </MacroKey>
+    </Key>
+    <Key id="P">
+        <Label> <BottomLeft>P</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard p and P" /> </MacroKey>
+    </Key>
+    <Key id="Q">
+        <Label> <BottomLeft>Q</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard q and Q" /> </MacroKey>
+    </Key>
+    <Key id="R">
+        <Label> <BottomLeft>R</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard r and R" /> </MacroKey>
+    </Key>
+    <Key id="S">
+        <Label> <BottomLeft>S</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard s and S" /> </MacroKey>
+    </Key>
+    <Key id="T">
+        <Label> <BottomLeft>T</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard t and T" /> </MacroKey>
+    </Key>
+    <Key id="U">
+        <Label> <BottomLeft>U</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard u and U" /> </MacroKey>
+    </Key>
+    <Key id="V">
+        <Label> <BottomLeft>V</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard v and V" /> </MacroKey>
+    </Key>
+    <Key id="W">
+        <Label> <BottomLeft>W</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard w and W" /> </MacroKey>
+    </Key>
+    <Key id="X">
+        <Label> <BottomLeft>X</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard x and X" /> </MacroKey>
+    </Key>
+    <Key id="Y">
+        <Label> <BottomLeft>Y</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard y and Y" /> </MacroKey>
+    </Key>
+    <Key id="Z">
+        <Label> <BottomLeft>Z</BottomLeft> </Label>
+        <MacroKey> <Modifier id="Left Shift" /> <Usage id="Keyboard z and Z" /> </MacroKey>
+    </Key>
+    <Key id="[">
+        <Label>
+            <TopLeft>{</TopLeft>
+            <BottomLeft>[</BottomLeft>
+        </Label>
+        <Usage id="Keyboard [ and {" />
+    </Key>
+    <Key id="\">
+        <Label>
+            <TopLeft>|</TopLeft>
+            <BottomLeft>\</BottomLeft>
+        </Label>
+        <Usage id="Keyboard \ and |" />
+    </Key>
+    <Key id="]">
+        <Label>
+            <TopLeft>}</TopLeft>
+            <BottomLeft>]</BottomLeft>
+        </Label>
+        <Usage id="Keyboard ] and }" />
+    </Key>
+    <Key id="^">
+        <Label> <BottomLeft>^</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard 6 and ^" /></MacroKey>
+    </Key>
+    <Key id="_">
+        <Label> <BottomLeft>_</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard - and _" /></MacroKey>
+    </Key>
+    <Key id="backquote">
+        <Label>
+            <TopLeft>~</TopLeft>
+            <BottomLeft>`</BottomLeft>
+        </Label>
+        <Usage id="Keyboard Grave Accent and Tilde" />
+    </Key>
+    <Key id="a">
+        <Label> <BottomLeft>a</BottomLeft> </Label>
+        <Usage id="Keyboard a and A" />
+    </Key>
+    <Key id="b">
+        <Label> <BottomLeft>b</BottomLeft> </Label>
+        <Usage id="Keyboard b and B" />
+    </Key>
+    <Key id="c">
+        <Label> <BottomLeft>c</BottomLeft> </Label>
+        <Usage id="Keyboard c and C" />
+    </Key>
+    <Key id="d">
+        <Label> <BottomLeft>d</BottomLeft> </Label>
+        <Usage id="Keyboard d and D" />
+    </Key>
+    <Key id="e">
+        <Label> <BottomLeft>e</BottomLeft> </Label>
+        <Usage id="Keyboard e and E" />
+    </Key>
+    <Key id="f">
+        <Label> <BottomLeft>f</BottomLeft> </Label>
+        <Usage id="Keyboard f and F" />
+    </Key>
+    <Key id="g">
+        <Label> <BottomLeft>g</BottomLeft> </Label>
+        <Usage id="Keyboard g and G" />
+    </Key>
+    <Key id="h">
+        <Label> <BottomLeft>h</BottomLeft> </Label>
+        <Usage id="Keyboard h and H" />
+    </Key>
+    <Key id="i">
+        <Label> <BottomLeft>i</BottomLeft> </Label>
+        <Usage id="Keyboard i and I" />
+    </Key>
+    <Key id="j">
+        <Label> <BottomLeft>j</BottomLeft> </Label>
+        <Usage id="Keyboard j and J" />
+    </Key>
+    <Key id="k">
+        <Label> <BottomLeft>k</BottomLeft> </Label>
+        <Usage id="Keyboard k and K" />
+    </Key>
+    <Key id="l">
+        <Label> <BottomLeft>l</BottomLeft> </Label>
+        <Usage id="Keyboard l and L" />
+    </Key>
+    <Key id="m">
+        <Label> <BottomLeft>m</BottomLeft> </Label>
+        <Usage id="Keyboard m and M" />
+    </Key>
+    <Key id="n">
+        <Label> <BottomLeft>n</BottomLeft> </Label>
+        <Usage id="Keyboard n and N" />
+    </Key>
+    <Key id="o">
+        <Label> <BottomLeft>o</BottomLeft> </Label>
+        <Usage id="Keyboard o and O" />
+    </Key>
+    <Key id="p">
+        <Label> <BottomLeft>p</BottomLeft> </Label>
+        <Usage id="Keyboard p and P" />
+    </Key>
+    <Key id="q">
+        <Label> <BottomLeft>q</BottomLeft> </Label>
+        <Usage id="Keyboard q and Q" />
+    </Key>
+    <Key id="r">
+        <Label> <BottomLeft>r</BottomLeft> </Label>
+        <Usage id="Keyboard r and R" />
+    </Key>
+    <Key id="s">
+        <Label> <BottomLeft>s</BottomLeft> </Label>
+        <Usage id="Keyboard s and S" />
+    </Key>
+    <Key id="t">
+        <Label> <BottomLeft>t</BottomLeft> </Label>
+        <Usage id="Keyboard t and T" />
+    </Key>
+    <Key id="u">
+        <Label> <BottomLeft>u</BottomLeft> </Label>
+        <Usage id="Keyboard u and U" />
+    </Key>
+    <Key id="v">
+        <Label> <BottomLeft>v</BottomLeft> </Label>
+        <Usage id="Keyboard v and V" />
+    </Key>
+    <Key id="w">
+        <Label> <BottomLeft>w</BottomLeft> </Label>
+        <Usage id="Keyboard w and W" />
+    </Key>
+    <Key id="x">
+        <Label> <BottomLeft>x</BottomLeft> </Label>
+        <Usage id="Keyboard x and X" />
+    </Key>
+    <Key id="y">
+        <Label> <BottomLeft>y</BottomLeft> </Label>
+        <Usage id="Keyboard y and Y" />
+    </Key>
+    <Key id="z">
+        <Label> <BottomLeft>z</BottomLeft> </Label>
+        <Usage id="Keyboard z and Z" />
+    </Key>
+    <Key id="{">
+        <Label> <BottomLeft>{</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard [ and {" /></MacroKey>
+    </Key>
+    <Key id="|">
+        <Label> <BottomLeft>|</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard \ and |" /></MacroKey>
+    </Key>
+    <Key id="}">
+        <Label> <BottomLeft>}</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard ] and }" /></MacroKey>
+    </Key>
+    <Key id="~">
+        <Label> <BottomLeft>`</BottomLeft> </Label>
+        <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard Grave Accent and Tilde" /></MacroKey>
+    </Key>
+
+    <Key id="test_1">
+        <Label> <BottomLeft>Test 1</BottomLeft> </Label>
+        <Macro>
+            <MacroKey><Modifier id="Left Shift" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard a and A" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /><Usage id="Keyboard b and B" /></MacroKey>
+            <MacroKey><Modifier id="Left Shift" /></MacroKey>
+            <Usage id="Keyboard c and C"/>
+        </Macro>
+    </Key>
+
+</SourceKeys>

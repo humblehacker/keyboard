@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../Schema/Keyboards.rng" type="xml"?>
+<Keyboard org="TypeMatrix" xmlns:xi="http://www.w3.org/2001/XInclude" rev="$Rev: 63 $">
+	<xi:include href="Layout-2030-B.xml" />
+	<xi:include href="Matrix-2030-A-retrofit.xml" />
+	<xi:include href="Map-US.xml" />
+	<xi:include href="Map-DV.xml" />
+	<xi:include href="Map-JP.xml" />
+	<xi:include href="Map-Nm.xml" />
+	<xi:include href="Map-Fn.xml" />
+</Keyboard>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://davids-macpro.local/%7Edavid/Schema/Keyboards.rng" type="xml"?>
+<Map id="Nm" rev="$Rev: 62 $" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Keys default_color="Blue">
+		<!-- Row 1 -->
+
+		<!-- Row 2 -->
+		<!-- <Key location="t22"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F13</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F13" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t23"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F14</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F14" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t24"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F15</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F15" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t25"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F16</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F16" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t26"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F17</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F17" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t28"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F18</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F19" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t29"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F19</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F19" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t2a"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F20</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F20" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t2b"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F21</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F21" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t2c"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F22</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F22" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t2d"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F23</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F23" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t2e"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>F24</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard F24" /> -->
+		<!-- </Key> -->
+
+		<!-- Row 3 -->
+		<!-- <Key location="t31"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>Tab</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keypad Tab" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t32"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>[</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard [ and {" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t33"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>{</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keypad {" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t34"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>(</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keypad (" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t38"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>{phone}</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage page="Consumer Control" id="Media Select Telephone" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t39"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>{calc}</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage page="Consumer Control" id="AL Calculator" /> -->
+		<!-- </Key> -->
+<!-- 		<Key location="t3a"> -->
+<!-- 			<Label> -->
+<!-- 				<TopLeft>Clear</TopLeft> -->
+<!-- 			</Label> -->
+<!-- 			<Usage id="Keypad Clear Entry" /> -->
+<!-- 		</Key> -->
+		<KeyRef location="t3b" id="tab" />
+		<KeyRef location="t3c" id="keypad_slash" />
+		<KeyRef location="t3d" id="keypad_asterisk" />
+		<KeyRef location="t3e" id="keypad_minus" />
+
+		<!-- Row 4 -->
+		<!-- <Key location="t42"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>]</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keyboard ] and }" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t43"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>}</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keypad }" /> -->
+		<!-- </Key> -->
+		<!-- <Key location="t44"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>)</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keypad )" /> -->
+		<!-- </Key> -->
+		<KeyRef location="t48" id="home" />
+		<KeyRef location="t49" id="arrow_up" />
+		<KeyRef location="t4a" id="end" />
+		<KeyRef location="t4b" id="keypad_7" />
+		<KeyRef location="t4c" id="keypad_8" />
+		<KeyRef location="t4d" id="keypad_9" />
+		<KeyRef location="t4e" id="keypad_plus" />
+
+		<!-- Row 5 -->
+		<!-- <Key location="t56"> -->
+		<!-- 	<Label> -->
+		<!-- 		<TopLeft>@</TopLeft> -->
+		<!-- 	</Label> -->
+		<!-- 	<Usage id="Keypad @" /> -->
+		<!-- </Key> -->
+		<KeyRef location="t58" id="arrow_left" />
+		<KeyRef location="t59" id="arrow_down" />
+		<KeyRef location="t5a" id="arrow_right" />
+		<KeyRef location="t5b" id="keypad_4" />
+		<KeyRef location="t5c" id="keypad_5" />
+		<KeyRef location="t5d" id="keypad_6" />
+
+		<!-- Row 6 -->
+		<KeyRef location="t6b" id="keypad_1" />
+		<KeyRef location="t6c" id="keypad_2" />
+		<KeyRef location="t6d" id="keypad_3" />
+
+        <!-- Row 7 -->
+		<KeyRef location="t7b" id="keypad_0" />
+		<KeyRef location="t7c" id="keypad_00" />
+		<KeyRef location="t7d" id="keypad_point" />
+	</Keys>
+</Map>

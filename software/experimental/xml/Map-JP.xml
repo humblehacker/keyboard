@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://davids-macpro.local/%7Edavid/Schema/Keyboards.rng" type="xml"?>
+<Map id="JP" base="Map-US.xml" rev="$Rev: 57 $" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<Keys>
+		<!-- Row 1 -->
+
+		<!-- Row 2 -->
+		<KeyRef location="t21" id="jp_grave" />
+		<KeyRef location="t22" id="jp_1" />
+		<KeyRef location="t23" id="jp_2" />
+		<KeyRef location="t24" id="jp_3" />
+		<KeyRef location="t25" id="jp_4" />
+		<KeyRef location="t26" id="jp_5" />
+		<KeyRef location="t28" id="jp_6" />
+		<KeyRef location="t29" id="jp_7" />
+		<KeyRef location="t2a" id="jp_8" />
+		<KeyRef location="t2b" id="jp_9" />
+		<KeyRef location="t2c" id="jp_0" />
+		<KeyRef location="t2d" id="jp_dash" />
+		<KeyRef location="t2e" id="jp_equal" />
+		<KeyRef location="t2f" id="jp_intl3" />
+
+		<!-- Row 3 -->
+		<KeyRef location="t32" id="jp_q" />
+		<KeyRef location="t33" id="jp_w" />
+		<KeyRef location="t34" id="jp_e" />
+		<KeyRef location="t35" id="jp_r" />
+		<KeyRef location="t36" id="jp_t" />
+		<KeyRef location="t38" id="jp_y" />
+		<KeyRef location="t39" id="jp_u" />
+		<KeyRef location="t3a" id="jp_i" />
+		<KeyRef location="t3b" id="jp_o" />
+		<KeyRef location="t3c" id="jp_p" />
+		<KeyRef location="t2d" id="jp_leftbrace" />
+		<KeyRef location="t2e" id="jp_rightbrace" />
+		<KeyRef location="t2f" id="jp_backslash" />
+
+		<!-- Row 4 -->
+		<KeyRef location="t42" id="jp_a" />
+		<KeyRef location="t43" id="jp_s" />
+		<KeyRef location="t44" id="jp_d" />
+		<KeyRef location="t45" id="jp_f" />
+		<KeyRef location="t46" id="jp_g" />
+		<KeyRef location="t48" id="jp_h" />
+		<KeyRef location="t49" id="jp_j" />
+		<KeyRef location="t4a" id="jp_k" />
+		<KeyRef location="t4b" id="jp_l" />
+		<KeyRef location="t4c" id="jp_semicolon" />
+		<KeyRef location="t4d" id="jp_apostrophe" />
+
+		<!-- Row 5 -->
+		<KeyRef location="t52" id="jp_z" />
+		<KeyRef location="t53" id="jp_x" />
+		<KeyRef location="t54" id="jp_c" />
+		<KeyRef location="t55" id="jp_v" />
+		<KeyRef location="t56" id="jp_b" />
+		<KeyRef location="t58" id="jp_n" />
+		<KeyRef location="t59" id="jp_m" />
+		<KeyRef location="t5a" id="jp_comma" />
+		<KeyRef location="t5b" id="jp_period" />
+		<KeyRef location="t5c" id="jp_slash" />
+		<KeyRef location="t5d" id="jp_intl1" />
+
+		<!-- Row 6 -->
+		<KeyRef location="t6a" id="jp_intl2" />
+
+		<!-- Row 7 -->
+		<KeyRef location="t71" id="jp_capslock" />
+		<KeyRef location="t73" id="jp_intl5" />
+		<KeyRef location="t7a" id="jp_intl4" />
+	</Keys>
+</Map>

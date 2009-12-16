@@ -1,0 +1,19 @@
+2/23/08 gem libxml-ruby 0.5.3
+>> require 'xml/libxml'
+LoadError: no such file to load -- libxml_so
+        from /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+        from /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+        from /opt/local/lib/ruby/gems/1.8/gems/libxml-ruby-0.5.3/lib/libxml.rb:4
+        from /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:32:in `gem_original_require'
+        from /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:32:in `require'
+        from /opt/local/lib/ruby/gems/1.8/gems/libxml-ruby-0.5.3/lib/xml/libxml.rb:4
+        from /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:32:in `gem_original_require'
+        from /opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:32:in `require'
+        from (irb):1
+
+Fix:
+cd /opt/local/lib/ruby/gems/1.8/gems/libxml-ruby-0.5.3
+sudo ruby setup.rb config setup
+
+
+

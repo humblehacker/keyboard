@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://davids-macpro.local/%7Edavid/Schema/Keyboards.rng" type="xml"?>
+<Map id="Common" rev="$Rev: 59 $">
+	<Keys>
+		<!-- Row 1 -->
+		<KeyRef location="t11" id="esc" />
+		<KeyRef location="t12" id="f1" />
+		<KeyRef location="t13" id="f2" />
+		<KeyRef location="t14" id="f3" />
+		<KeyRef location="t15" id="f4" />
+		<KeyRef location="t16" id="f5" />
+		<KeyRef location="t17" id="delete" />
+		<KeyRef location="t18" id="f6" />
+		<KeyRef location="t19" id="f7" />
+		<KeyRef location="t1a" id="f8" />
+		<KeyRef location="t1b" id="f9" />
+		<KeyRef location="t1c" id="f10" />
+		<KeyRef location="t1d" id="f11" />
+		<KeyRef location="t1e" id="f12" />
+		<KeyRef location="t1f" id="num" />
+
+		<!-- Row 2 -->
+		<KeyRef location="t27" id="backspace" />
+		<KeyRef location="t2f" id="web" />
+
+		<!-- Row 3 -->
+		<KeyRef location="t31" id="tab" />
+		<KeyRef location="t3f" id="mail" />
+
+		<!-- Row 4 -->
+		<KeyRef location="t41" id="left_shift" />
+		<KeyRef location="t47" id="return" />
+		<KeyRef location="t4e" id="right_shift" />
+		<KeyRef location="t4f" id="right_ctrl" />
+
+		<!-- Row 5 -->
+		<KeyRef location="t5f" id="right_alt" />
+
+		<!-- Row 6 -->
+		<KeyRef location="t61" id="fn" />
+		<KeyRef location="t62" id="left_ctrl" />
+		<KeyRef location="t63" id="left_gui" />
+		<KeyRef location="t64" id="left_alt" />
+		<KeyRef location="t65" id="space" />
+		<KeyRef location="t6a" id="shuffle" />
+		<KeyRef location="t6b" id="home" />
+		<KeyRef location="t6c" id="arrow_up" />
+		<KeyRef location="t6d" id="end" />
+		<KeyRef location="t6e" id="keypad_enter" />
+		<KeyRef location="t6f" id="page_up" />
+
+		<!-- Row 7 -->
+		<KeyRef location="t71" id="caps" />
+		<KeyRef location="t72" id="app" />
+		<KeyRef location="t73" id="tunes" />
+		<KeyRef location="t7a" id="desktop" />
+		<KeyRef location="t7b" id="arrow_left" />
+		<KeyRef location="t7c" id="arrow_down" />
+		<KeyRef location="t7d" id="arrow_right" />
+		<KeyRef location="t7f" id="page_down" />
+	</Keys>
+</Map>

@@ -1,0 +1,9 @@
+rm -rf Remapper Remapper.dmg Remapper.app
+py2applet -r`pwd`/xml,`pwd`/hand_point3.gif `pwd`/2030B.icns Remapper.py
+mkdir Remapper
+cp -Rp ./Remapper.app ./Remapper
+ln -s /Applications ./Remapper
+hdiutil create -srcfolder ./Remapper ./tmp.dmg
+hdiutil convert ./tmp.dmg -format UDZO -o ./Remapper.dmg
+rm -rf ./tmp.dmg
+

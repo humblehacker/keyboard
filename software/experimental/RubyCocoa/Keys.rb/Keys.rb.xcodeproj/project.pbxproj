@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DA7E4910ACC9AEB00B17D13 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		4DA7E4940ACC9AEB00B17D13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		4DA7E4950ACC9AEB00B17D13 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E29F03AEDEA503A81C6F /* rb_main.rb */; };
+		4DA7E4960ACC9AEB00B17D13 /* MyDocument.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E2A103AEDEBE03A81C6F /* MyDocument.rb */; };
+		4DA7E4980ACC9AEB00B17D13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		4DA7E49A0ACC9AEB00B17D13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		4DA7E49B0ACC9AEB00B17D13 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F5E29503AEDE5A03A81C6F /* RubyCocoa.framework */; };
+		6311A0370E0AA64300E8684C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6311A0350E0AA64300E8684C /* MainMenu.xib */; };
+		6311A03B0E0AA67100E8684C /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6311A0390E0AA67100E8684C /* MyDocument.xib */; };
+		6311A0880E0AAC3200E8684C /* 2030-B.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0580E0AA85E00E8684C /* 2030-B.xml */; };
+		6311A0890E0AAC3200E8684C /* Categories.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0590E0AA85E00E8684C /* Categories.xml */; };
+		6311A08A0E0AAC3200E8684C /* CommonColors.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A05A0E0AA85E00E8684C /* CommonColors.xml */; };
+		6311A08B0E0AAC3200E8684C /* HIDUsageTables.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A05B0E0AA85E00E8684C /* HIDUsageTables.xml */; };
+		6311A08C0E0AAC3200E8684C /* Layout-2030-B.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A05C0E0AA85E00E8684C /* Layout-2030-B.xml */; };
+		6311A08D0E0AAC3200E8684C /* Map-Common.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A05D0E0AA85E00E8684C /* Map-Common.xml */; };
+		6311A08E0E0AAC3200E8684C /* Map-DV.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A05E0E0AA85E00E8684C /* Map-DV.xml */; };
+		6311A08F0E0AAC3200E8684C /* Map-Fn.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A05F0E0AA85E00E8684C /* Map-Fn.xml */; };
+		6311A0900E0AAC3200E8684C /* Map-JP.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0600E0AA85E00E8684C /* Map-JP.xml */; };
+		6311A0910E0AAC3200E8684C /* Map-Nm.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0610E0AA85E00E8684C /* Map-Nm.xml */; };
+		6311A0920E0AAC3200E8684C /* Map-US.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0620E0AA85E00E8684C /* Map-US.xml */; };
+		6311A0930E0AAC3200E8684C /* Matrix-2030-A-retrofit.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0630E0AA85E00E8684C /* Matrix-2030-A-retrofit.xml */; };
+		6311A0940E0AAC3200E8684C /* SourceKeys.xml in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 6311A0640E0AA85E00E8684C /* SourceKeys.xml */; };
+		6311A0AF0E0AB4DF00E8684C /* DestPage.rb in Resources */ = {isa = PBXBuildFile; fileRef = 6311A0AE0E0AB4DF00E8684C /* DestPage.rb */; };
+		6311A0B40E0AB62300E8684C /* KeyDisplayPage.rb in Resources */ = {isa = PBXBuildFile; fileRef = 6311A0B30E0AB62300E8684C /* KeyDisplayPage.rb */; };
+		63C098BF0E0AFA9A00EA1D59 /* DestView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63C098BE0E0AFA9A00EA1D59 /* DestView.rb */; };
+		63D1911B0E0A903000095E72 /* notifications.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63D1910E0E0A903000095E72 /* notifications.rb */; };
+		63D1911D0E0A903000095E72 /* utils.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63D191100E0A903000095E72 /* utils.rb */; };
+		63D191210E0A903000095E72 /* keyboard.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63D191140E0A903000095E72 /* keyboard.rb */; };
+		63D191240E0A903000095E72 /* model.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63D191170E0A903000095E72 /* model.rb */; };
+		63D191250E0A903000095E72 /* hid.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63D191180E0A903000095E72 /* hid.rb */; };
+		63D191790E0A9E0100095E72 /* displaykey.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63D191780E0A9E0100095E72 /* displaykey.rb */; };
+		63E3EE1C0E158F8E00A1BF30 /* DestDisplayKey.rb in Resources */ = {isa = PBXBuildFile; fileRef = 63E3EE1B0E158F8E00A1BF30 /* DestDisplayKey.rb */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6311A0870E0AAC1900E8684C /* Copy XML Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = xml;
+			dstSubfolderSpec = 7;
+			files = (
+				6311A0880E0AAC3200E8684C /* 2030-B.xml in Copy XML Files */,
+				6311A0890E0AAC3200E8684C /* Categories.xml in Copy XML Files */,
+				6311A08A0E0AAC3200E8684C /* CommonColors.xml in Copy XML Files */,
+				6311A08B0E0AAC3200E8684C /* HIDUsageTables.xml in Copy XML Files */,
+				6311A08C0E0AAC3200E8684C /* Layout-2030-B.xml in Copy XML Files */,
+				6311A08D0E0AAC3200E8684C /* Map-Common.xml in Copy XML Files */,
+				6311A08E0E0AAC3200E8684C /* Map-DV.xml in Copy XML Files */,
+				6311A08F0E0AAC3200E8684C /* Map-Fn.xml in Copy XML Files */,
+				6311A0900E0AAC3200E8684C /* Map-JP.xml in Copy XML Files */,
+				6311A0910E0AAC3200E8684C /* Map-Nm.xml in Copy XML Files */,
+				6311A0920E0AAC3200E8684C /* Map-US.xml in Copy XML Files */,
+				6311A0930E0AAC3200E8684C /* Matrix-2030-A-retrofit.xml in Copy XML Files */,
+				6311A0940E0AAC3200E8684C /* SourceKeys.xml in Copy XML Files */,
+			);
+			name = "Copy XML Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		4DA7E49F0ACC9AEB00B17D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DA7E4A00ACC9AEB00B17D13 /* Keys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keys.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6311A0360E0AA64300E8684C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6311A03A0E0AA67100E8684C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MyDocument.xib; sourceTree = "<group>"; };
+		6311A0580E0AA85E00E8684C /* 2030-B.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2030-B.xml"; sourceTree = "<group>"; };
+		6311A0590E0AA85E00E8684C /* Categories.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Categories.xml; sourceTree = "<group>"; };
+		6311A05A0E0AA85E00E8684C /* CommonColors.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CommonColors.xml; sourceTree = "<group>"; };
+		6311A05B0E0AA85E00E8684C /* HIDUsageTables.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HIDUsageTables.xml; sourceTree = "<group>"; };
+		6311A05C0E0AA85E00E8684C /* Layout-2030-B.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Layout-2030-B.xml"; sourceTree = "<group>"; };
+		6311A05D0E0AA85E00E8684C /* Map-Common.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Map-Common.xml"; sourceTree = "<group>"; };
+		6311A05E0E0AA85E00E8684C /* Map-DV.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Map-DV.xml"; sourceTree = "<group>"; };
+		6311A05F0E0AA85E00E8684C /* Map-Fn.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Map-Fn.xml"; sourceTree = "<group>"; };
+		6311A0600E0AA85E00E8684C /* Map-JP.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Map-JP.xml"; sourceTree = "<group>"; };
+		6311A0610E0AA85E00E8684C /* Map-Nm.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Map-Nm.xml"; sourceTree = "<group>"; };
+		6311A0620E0AA85E00E8684C /* Map-US.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Map-US.xml"; sourceTree = "<group>"; };
+		6311A0630E0AA85E00E8684C /* Matrix-2030-A-retrofit.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Matrix-2030-A-retrofit.xml"; sourceTree = "<group>"; };
+		6311A0640E0AA85E00E8684C /* SourceKeys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SourceKeys.xml; sourceTree = "<group>"; };
+		6311A0AE0E0AB4DF00E8684C /* DestPage.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DestPage.rb; sourceTree = "<group>"; };
+		6311A0B30E0AB62300E8684C /* KeyDisplayPage.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = KeyDisplayPage.rb; sourceTree = "<group>"; };
+		63C098BE0E0AFA9A00EA1D59 /* DestView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DestView.rb; sourceTree = "<group>"; };
+		63D1910E0E0A903000095E72 /* notifications.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = notifications.rb; path = ../../wxRuby/notifications.rb; sourceTree = SOURCE_ROOT; };
+		63D191100E0A903000095E72 /* utils.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = utils.rb; path = ../../wxRuby/utils.rb; sourceTree = SOURCE_ROOT; };
+		63D191140E0A903000095E72 /* keyboard.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = keyboard.rb; path = ../../wxRuby/keyboard.rb; sourceTree = SOURCE_ROOT; };
+		63D191170E0A903000095E72 /* model.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = model.rb; path = ../../wxRuby/model.rb; sourceTree = SOURCE_ROOT; };
+		63D191180E0A903000095E72 /* hid.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = hid.rb; path = ../../wxRuby/hid.rb; sourceTree = SOURCE_ROOT; };
+		63D191780E0A9E0100095E72 /* displaykey.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = displaykey.rb; sourceTree = "<group>"; };
+		63E3EE1B0E158F8E00A1BF30 /* DestDisplayKey.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = DestDisplayKey.rb; sourceTree = "<group>"; };
+		E8F5E29503AEDE5A03A81C6F /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = /System/Library/Frameworks/RubyCocoa.framework; sourceTree = "<absolute>"; };
+		E8F5E29F03AEDEA503A81C6F /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+		E8F5E2A103AEDEBE03A81C6F /* MyDocument.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = MyDocument.rb; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DA7E4990ACC9AEB00B17D13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DA7E49A0ACC9AEB00B17D13 /* Cocoa.framework in Frameworks */,
+				4DA7E49B0ACC9AEB00B17D13 /* RubyCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+				E8F5E29503AEDE5A03A81C6F /* RubyCocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DA7E4A00ACC9AEB00B17D13 /* Keys.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				63E3EE1B0E158F8E00A1BF30 /* DestDisplayKey.rb */,
+				63D191090E0A900700095E72 /* External Classes */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+				4DA7E49F0ACC9AEB00B17D13 /* Info.plist */,
+				6311A0350E0AA64300E8684C /* MainMenu.xib */,
+				6311A0390E0AA67100E8684C /* MyDocument.xib */,
+			);
+			name = Keys;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6311A0B30E0AB62300E8684C /* KeyDisplayPage.rb */,
+				6311A0AE0E0AB4DF00E8684C /* DestPage.rb */,
+				E8F5E2A103AEDEBE03A81C6F /* MyDocument.rb */,
+				63C098BE0E0AFA9A00EA1D59 /* DestView.rb */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+				E8F5E29F03AEDEA503A81C6F /* rb_main.rb */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6311A0570E0AA85E00E8684C /* xml */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6311A0570E0AA85E00E8684C /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				6311A0580E0AA85E00E8684C /* 2030-B.xml */,
+				6311A0590E0AA85E00E8684C /* Categories.xml */,
+				6311A05A0E0AA85E00E8684C /* CommonColors.xml */,
+				6311A05B0E0AA85E00E8684C /* HIDUsageTables.xml */,
+				6311A05C0E0AA85E00E8684C /* Layout-2030-B.xml */,
+				6311A05D0E0AA85E00E8684C /* Map-Common.xml */,
+				6311A05E0E0AA85E00E8684C /* Map-DV.xml */,
+				6311A05F0E0AA85E00E8684C /* Map-Fn.xml */,
+				6311A0600E0AA85E00E8684C /* Map-JP.xml */,
+				6311A0610E0AA85E00E8684C /* Map-Nm.xml */,
+				6311A0620E0AA85E00E8684C /* Map-US.xml */,
+				6311A0630E0AA85E00E8684C /* Matrix-2030-A-retrofit.xml */,
+				6311A0640E0AA85E00E8684C /* SourceKeys.xml */,
+			);
+			name = xml;
+			path = ../../xml;
+			sourceTree = SOURCE_ROOT;
+		};
+		63D191090E0A900700095E72 /* External Classes */ = {
+			isa = PBXGroup;
+			children = (
+				63D191780E0A9E0100095E72 /* displaykey.rb */,
+				63D1910E0E0A903000095E72 /* notifications.rb */,
+				63D191100E0A903000095E72 /* utils.rb */,
+				63D191140E0A903000095E72 /* keyboard.rb */,
+				63D191170E0A903000095E72 /* model.rb */,
+				63D191180E0A903000095E72 /* hid.rb */,
+			);
+			name = "External Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4DA7E48F0ACC9AEB00B17D13 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4DA7E48E0ACC9AEB00B17D13 /* Keys */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DA7E49C0ACC9AEB00B17D13 /* Build configuration list for PBXNativeTarget "Keys" */;
+			buildPhases = (
+				4DA7E48F0ACC9AEB00B17D13 /* Headers */,
+				4DA7E4900ACC9AEB00B17D13 /* Resources */,
+				6311A0870E0AAC1900E8684C /* Copy XML Files */,
+				4DA7E4970ACC9AEB00B17D13 /* Sources */,
+				4DA7E4990ACC9AEB00B17D13 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Keys;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Keys;
+			productReference = 4DA7E4A00ACC9AEB00B17D13 /* Keys.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 4DDA93C30ABF754D00FBC9C8 /* Build configuration list for PBXProject "Keys.rb" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 0;
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* Keys */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DA7E48E0ACC9AEB00B17D13 /* Keys */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DA7E4900ACC9AEB00B17D13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DA7E4910ACC9AEB00B17D13 /* Credits.rtf in Resources */,
+				4DA7E4940ACC9AEB00B17D13 /* InfoPlist.strings in Resources */,
+				4DA7E4950ACC9AEB00B17D13 /* rb_main.rb in Resources */,
+				4DA7E4960ACC9AEB00B17D13 /* MyDocument.rb in Resources */,
+				63D1911B0E0A903000095E72 /* notifications.rb in Resources */,
+				63D1911D0E0A903000095E72 /* utils.rb in Resources */,
+				63D191210E0A903000095E72 /* keyboard.rb in Resources */,
+				63D191240E0A903000095E72 /* model.rb in Resources */,
+				63D191250E0A903000095E72 /* hid.rb in Resources */,
+				63D191790E0A9E0100095E72 /* displaykey.rb in Resources */,
+				6311A0370E0AA64300E8684C /* MainMenu.xib in Resources */,
+				6311A03B0E0AA67100E8684C /* MyDocument.xib in Resources */,
+				6311A0AF0E0AB4DF00E8684C /* DestPage.rb in Resources */,
+				6311A0B40E0AB62300E8684C /* KeyDisplayPage.rb in Resources */,
+				63C098BF0E0AFA9A00EA1D59 /* DestView.rb in Resources */,
+				63E3EE1C0E158F8E00A1BF30 /* DestDisplayKey.rb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DA7E4970ACC9AEB00B17D13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DA7E4980ACC9AEB00B17D13 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		6311A0350E0AA64300E8684C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6311A0360E0AA64300E8684C /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		6311A0390E0AA67100E8684C /* MyDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6311A03A0E0AA67100E8684C /* English */,
+			);
+			name = MyDocument.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4DA7E49D0ACC9AEB00B17D13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Keys;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		4DA7E49E0ACC9AEB00B17D13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Keys;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4DDA93C40ABF754D00FBC9C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		4DDA93C50ABF754D00FBC9C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DA7E49C0ACC9AEB00B17D13 /* Build configuration list for PBXNativeTarget "Keys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DA7E49D0ACC9AEB00B17D13 /* Debug */,
+				4DA7E49E0ACC9AEB00B17D13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DDA93C30ABF754D00FBC9C8 /* Build configuration list for PBXProject "Keys.rb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DDA93C40ABF754D00FBC9C8 /* Debug */,
+				4DDA93C50ABF754D00FBC9C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
