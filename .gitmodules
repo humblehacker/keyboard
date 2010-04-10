@@ -1,0 +1,3 @@
+[submodule "firmware/lufa"]
+	path = firmware/lufa
+	url = git://github.com/abcminiuser/lufa-lib.git
