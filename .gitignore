@@ -11,6 +11,7 @@
 *.tmp
 *.vp*
 *.vtg
+*.xpr
 .DS_Store
 generated
 extra
