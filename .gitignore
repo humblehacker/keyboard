@@ -17,3 +17,4 @@ generated
 extra
 hardware
 firmware/kbgen/kspec.rb
+firmware/kbgen/kb.kspec
