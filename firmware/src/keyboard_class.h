@@ -32,26 +32,46 @@ extern "C" {
 #include "binding.h"
 #include "bound_key.h"
 
-//struct USB_KeyboardReport_Data_t;
+#define NUM_MODIFIERS 8
+#define MAX_KEYS      6
+#define MAX_ACTIVE_CELLS (MAX_KEYS + NUM_MODIFIERS)
 
-void      Keyboard__init(void);
-void      Keyboard__reset(void);
+class Keyboard
+{
+public:
+  static void      init();
+  static void      reset();
 
-void      Keyboard__scan_matrix(void);
+  static void      scan_matrix();
 
-bool      Keyboard__is_error(void);
-uint8_t   Keyboard__fill_report(USB_KeyboardReport_Data_t *report);
-bool      Keyboard__is_processing_macro(void);
+  static bool      is_error();
+  static uint8_t   fill_report(USB_KeyboardReport_Data_t *report);
+  static bool      is_processing_macro();
 
-bool      Keyboard__momentary_mode_engaged(void);
-bool      Keyboard__modifier_keys_engaged(void);
-void      Keyboard__check_mode_toggle(void);
-void      Keyboard__process_keys(void);
-void      Keyboard__toggle_map(KeyMap mode_map);
+  static bool      momentary_mode_engaged();
+  static bool      modifier_keys_engaged();
+  static void      check_mode_toggle();
+  static void      process_keys();
+  static void      toggle_map(KeyMap mode_map);
 
-void      Keyboard__update_bindings(void);
-void      Keyboard__init_active_keys(void);
-BoundKey* Keyboard__first_active_key(void);
-BoundKey* Keyboard__next_active_key(void);
+  static void      update_bindings();
+  static void      init_active_keys();
+  static BoundKey* first_active_key();
+  static BoundKey* next_active_key();
+
+private:
+  static uint32_t  row_data[NUM_ROWS];
+  static uint8_t   modifiers;
+  static Usage     keys[MAX_KEYS];
+  static uint8_t   num_keys;
+  static BoundKey  active_keys[MAX_ACTIVE_CELLS];
+  static uint8_t   num_active_keys;
+  static uint8_t   curr_active_key;
+  static const     MacroTarget *macro;
+  static bool      error_roll_over;
+  static KeyMap    active_keymap;
+  static KeyMap    current_keymap;
+  static KeyMap    default_keymap;
+};
 
 #endif // __KEYBOARD_CLASS_H__

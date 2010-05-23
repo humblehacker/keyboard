@@ -122,7 +122,7 @@ void SetupHardware()
 	USB_Init();
 
   /* Task init */
-  Keyboard__init();
+  Keyboard::init();
 
   g_num_lock = g_caps_lock = g_scrl_lock = 0;
 
@@ -188,24 +188,24 @@ void EVENT_USB_Device_StartOfFrame(void)
 bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDInterfaceInfo, uint8_t* const ReportID,
                                          const uint8_t ReportType, void* ReportData, uint16_t* ReportSize)
 {
-  Keyboard__reset();
-  Keyboard__scan_matrix();
-	Keyboard__init_active_keys();
+  Keyboard::reset();
+  Keyboard::scan_matrix();
+	Keyboard::init_active_keys();
 
-  if (!Keyboard__is_error())
+  if (!Keyboard::is_error())
   {
     loop:
-    Keyboard__update_bindings();
-    if (Keyboard__momentary_mode_engaged())
+    Keyboard::update_bindings();
+    if (Keyboard::momentary_mode_engaged())
       goto loop;
-    if (Keyboard__modifier_keys_engaged())
+    if (Keyboard::modifier_keys_engaged())
       goto loop;
-    Keyboard__check_mode_toggle();
-    Keyboard__process_keys();
+    Keyboard::check_mode_toggle();
+    Keyboard::process_keys();
   }
 
 	USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
-  *ReportSize = Keyboard__fill_report(KeyboardReport);
+  *ReportSize = Keyboard::fill_report(KeyboardReport);
 
 	return false;
 }
