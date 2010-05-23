@@ -24,19 +24,40 @@
 #ifndef __BOUND_KEY_H__
 #define __BOUND_KEY_H__
 
-#include <stdbool.h>
 #include "binding.h"
 
-enum {DEACTIVATED=((uint8_t)-1)};
+//enum {DEACTIVATED=((uint8_t)-1)};
+//
+//typedef struct
+//{
+//Cell              cell;
+//const KeyBinding *binding;
+//} BoundKey;
+//
+//extern bool BoundKey__is_active(BoundKey *key);
+//extern void BoundKey__deactivate(BoundKey *key);
+//extern void BoundKey__update_binding(BoundKey *key, Modifiers mods, KeyMap keymap);
 
-typedef struct
+class BoundKey
 {
-  Cell              cell;
-  const KeyBinding *binding;
-} BoundKey;
+public:
+  BoundKey() {}
+  ~BoundKey() {}
 
-extern bool BoundKey__is_active(BoundKey *key);
-extern void BoundKey__deactivate(BoundKey *key);
-extern void BoundKey__update_binding(BoundKey *key, Modifiers mods, KeyMap keymap);
+  void reinit(Cell cell) { _cell = cell; _binding = NULL; }
+
+  enum {DEACTIVATED=((uint8_t)-1)};
+
+  void update_binding(uint8_t mods, KeyMap keymap);
+  bool is_active() const { return _cell != DEACTIVATED; }
+  void deactivate() { _cell = DEACTIVATED; }
+
+  const Cell cell() const { return _cell; }
+  const KeyBinding * binding() const { return _binding; }
+
+private:
+  Cell              _cell;
+  const KeyBinding *_binding;
+};
 
 #endif // __BOUND_KEY_H__

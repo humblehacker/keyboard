@@ -134,12 +134,7 @@ LAYOUT_FILE = $(LAYOUTS)/Keyboard.kspec
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC =   $(SRCDIR)/Keyboard.c                                       \
-	$(SRCDIR)/Descriptors.c                                    \
-	$(SRCDIR)/keyboard_class.c                                 \
-	$(SRCDIR)/bound_key.c                                      \
-	$(GENERATED)/keymaps.c                                     \
-	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/DevChapter9.c       \
+SRC =   $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/DevChapter9.c       \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Endpoint.c          \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Host.c              \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/HostChapter9.c      \
@@ -155,8 +150,12 @@ SRC =   $(SRCDIR)/Keyboard.c                                       \
 
 
 # List C++ source files here. (C dependencies are automatically generated.)
-CPPSRC = 
-
+	
+CPPSRC = $(SRCDIR)/bound_key.cpp    \
+	$(SRCDIR)/Keyboard.cpp        \
+	$(SRCDIR)/Descriptors.cpp     \
+	$(SRCDIR)/keyboard_class.cpp  \
+	$(GENERATED)/keymaps.c
 
 # List Assembler source files here.
 #     Make them always end in a capital .S.  Files ending in a lowercase .s
@@ -206,7 +205,7 @@ ADEFS = -DF_CPU=$(F_CPU)
 
 
 # Place -D or -U options here for C++ sources
-CPPDEFS = -DF_CPU=$(F_CPU)UL
+CPPDEFS = -DF_CPU=$(F_CPU)UL  -DF_CLOCK=$(F_CLOCK)UL -DBOARD=BOARD_$(BOARD) $(LUFA_OPTS)
 #CPPDEFS += -D__STDC_LIMIT_MACROS
 #CPPDEFS += -D__STDC_CONSTANT_MACROS
 
@@ -255,13 +254,15 @@ CPPFLAGS += -fpack-struct
 CPPFLAGS += -fshort-enums
 CPPFLAGS += -fno-exceptions
 CPPFLAGS += -Wall
-CFLAGS += -Wundef
+CPPFLAGS += -Wundef
+CPPFLAGS += -fno-rtti
+CPPFLAGS += -fno-exceptions
 #CPPFLAGS += -mshort-calls
 #CPPFLAGS += -fno-unit-at-a-time
 #CPPFLAGS += -Wstrict-prototypes
 #CPPFLAGS += -Wunreachable-code
 #CPPFLAGS += -Wsign-compare
-CPPFLAGS += -Wa,$(patsubst %.cpp,%.lst,$(<:../%.cpp=%.lst))
+CPPFLAGS += -Wa,-adhlns=$(patsubst %.cpp,%.lst,$(<:../%.cpp=%.lst))
 CPPFLAGS += $(patsubst %,-I%,$(EXTRAINCDIRS))
 #CPPFLAGS += $(CSTANDARD)
 
@@ -453,13 +454,15 @@ MSG_CREATING_LIBRARY = Creating library:
 
 
 # Define all object files.
-OBJx = $(SRC:../%.c=%.o) $(CPPSRC:../%.cpp=%.o) $(ASRC:../%.S=%o) 
-OBJ = $(OBJx:%.c=%.o)
+OBJx = $(CPPSRC:../%.cpp=%.o) $(SRC:../%.c=%.o) $(ASRC:../%.S=%o) 
+OBJy = $(OBJx:%.c=%.o)
+OBJ  = $(OBJy:%.cc=%.o)
 OBJDIRS = $(sort $(dir $(basename $(OBJ))))
 
 # Define all listing files.
-LSTx = $(SRC:../%.c=%.lst) $(CPPSRC:../%.cpp=%.lst) $(ASRC:../%.S=%.lst) 
-LST = $(LSTx:%.c=%.lst)
+LSTx = $(CPPSRC:../%.cpp=%.lst) $(SRC:../%.c=%.lst) $(ASRC:../%.S=%.lst) 
+LSTy = $(LSTx:%.c=%.lst)
+LST = $(LSTy:%.cpp=%.lst)
 
 
 # Compiler flags to generate dependency files.
@@ -516,6 +519,7 @@ lib: $(LIBNAME)
 begin:
 	@echo
 	@echo $(MSG_BEGIN)
+	echo $(LST)
 
 end:
 	@echo $(MSG_END)
@@ -697,7 +701,7 @@ extcoff: $(TARGET).elf
 	  @echo Creating dir: $(dir $@); \
 	  @mkdir -p $(dir $@); \
 	fi
-	@$(CC) -c $(ALL_CFLAGS) $< -o $@ 
+	$(CC) -c $(ALL_CFLAGS) $< -o $@ 
 
 
 # Compile: create object files from C++ source files.
@@ -709,7 +713,7 @@ extcoff: $(TARGET).elf
 	  @echo Creating dir: $(dir $@); \
 	  @mkdir -p $(dir $@); \
 	fi
-	@$(CC) -c $(ALL_CPPFLAGS) $< -o $@ 
+	$(CC) -c $(ALL_CPPFLAGS) $< -o $@ 
 
 
 # Compile: create assembler files from C source files.

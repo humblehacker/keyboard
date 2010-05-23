@@ -24,13 +24,15 @@
 #ifndef __KEYBOARD_CLASS_H__
 #define __KEYBOARD_CLASS_H__
 
+extern "C" {
 #include <LUFA/Drivers/USB/Class/HID.h>
+}
 
 #include "matrix.h"
 #include "binding.h"
 #include "bound_key.h"
 
-struct USB_KeyboardReport_Data_t;
+//struct USB_KeyboardReport_Data_t;
 
 void      Keyboard__init(void);
 void      Keyboard__reset(void);

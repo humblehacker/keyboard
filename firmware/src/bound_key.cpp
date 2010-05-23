@@ -3,25 +3,13 @@
 #include "bound_key.h"
 #include "keyboard_class.h"
 
-bool
-BoundKey__is_active(BoundKey *key)
-{
-  return key->cell != DEACTIVATED;
-}
-
 void
-BoundKey__deactivate(BoundKey *key)
+BoundKey::update_binding(uint8_t mods, KeyMap keymap)
 {
-  key->cell = DEACTIVATED;
-}
+  _binding = NULL;
 
-void
-BoundKey__update_binding(BoundKey *key, Modifiers mods, KeyMap keymap)
-{
-  key->binding = NULL;
-
-  static const KeyBindingArray bindings;
-  memcpy_P((void*)&bindings, &keymap[key->cell], sizeof(keymap[key->cell]));
+  static KeyBindingArray bindings;
+  memcpy_P((void*)&bindings, &keymap[_cell], sizeof(keymap[_cell]));
   if (bindings.length != 0)
   {
     // find and return the binding that matches the specified modifier state.
@@ -29,7 +17,7 @@ BoundKey__update_binding(BoundKey *key, Modifiers mods, KeyMap keymap)
     {
       if (bindings.data[i].premods == mods)
       {
-        key->binding = &bindings.data[i];
+        _binding = &bindings.data[i];
         return;
       }
     }
@@ -43,7 +31,7 @@ BoundKey__update_binding(BoundKey *key, Modifiers mods, KeyMap keymap)
     // premods == NONE.
     if (bindings.data[0].premods == NONE)
     {
-      key->binding = &bindings.data[0];
+      _binding = &bindings.data[0];
       return;
     }
   }

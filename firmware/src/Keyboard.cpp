@@ -56,18 +56,33 @@ uint8_t PrevKeyboardHIDReportBuffer[sizeof(USB_KeyboardReport_Data_t)];
  *  passed to all HID Class driver functions, so that multiple instances of the same class
  *  within a device can be differentiated from one another.
  */
+//USB_ClassInfo_HID_Device_t Keyboard_HID_Interface =
+//{
+//	.Config =
+//		{
+//			.InterfaceNumber              = 0,
+//
+//			.ReportINEndpointNumber       = KEYBOARD_EPNUM,
+//			.ReportINEndpointSize         = KEYBOARD_EPSIZE,
+//			.ReportINEndpointDoubleBank   = false,
+//
+//			.PrevReportINBuffer           = PrevKeyboardHIDReportBuffer,
+//			.PrevReportINBufferSize       = sizeof(PrevKeyboardHIDReportBuffer),
+//		},
+//  };
+
 USB_ClassInfo_HID_Device_t Keyboard_HID_Interface =
  	{
-		.Config =
+		/*.Config =*/
 			{
-				.InterfaceNumber              = 0,
-
-				.ReportINEndpointNumber       = KEYBOARD_EPNUM,
-				.ReportINEndpointSize         = KEYBOARD_EPSIZE,
-				.ReportINEndpointDoubleBank   = false,
-
-				.PrevReportINBuffer           = PrevKeyboardHIDReportBuffer,
-				.PrevReportINBufferSize       = sizeof(PrevKeyboardHIDReportBuffer),
+				/* .InterfaceNumber              = */ 0,
+        /*                                 */
+				/* .ReportINEndpointNumber       = */ KEYBOARD_EPNUM,
+				/* .ReportINEndpointSize         = */ KEYBOARD_EPSIZE,
+				/* .ReportINEndpointDoubleBank   = */ false,
+        /*                                 */
+				/* .PrevReportINBuffer           = */ PrevKeyboardHIDReportBuffer,
+				/* .PrevReportINBufferSize       = */ sizeof(PrevKeyboardHIDReportBuffer),
 			},
     };
 

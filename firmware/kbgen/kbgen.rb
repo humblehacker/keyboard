@@ -139,7 +139,7 @@ def generate_from_template(filename, template, bindings)
 end
 
 def generate(filename, bindings)
-  erbfilename = filename.sub(/(\.[ch])$/, '.erb\1')
+  erbfilename = filename.sub(/(\.[ch](pp)?)$/, '.erb\1')
   generate_from_template(filename, erbfilename, bindings)
 end
 
@@ -177,7 +177,7 @@ begin
   generate("binding.c", binding)
   create_individual_matrix_map_sourcefiles
   generate("keymaps.h", binding)
-  generate("keymaps.c", binding)
+  generate("keymaps.cpp", binding)
 # create_modekeys_header
 rescue Exception => e
   puts e.to_str

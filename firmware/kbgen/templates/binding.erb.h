@@ -27,7 +27,7 @@
 #include "hid_usages.h"
 #include "matrix.h"
 
-typedef enum
+enum Modifiers
 {
   NONE  = 0,
   L_CTL = (1<<0),
@@ -38,40 +38,40 @@ typedef enum
   R_SHF = (1<<5),
   R_ALT = (1<<6),
   R_GUI = (1<<7),
-} Modifiers;
+};
 
-typedef struct
+struct KeyBinding
 {
   enum {NOMAP, MAP, MODE, MACRO} kind;
-  Modifiers premods;
+  uint8_t premods;
   void *target;
-} KeyBinding;
+};
 
-typedef struct
+struct KeyBindingArray
 {
   uint8_t length;
   const KeyBinding *data;
-} KeyBindingArray;
+};
 
 typedef const KeyBindingArray* KeyMap;
 
-typedef struct
+struct ModeTarget
 {
   enum {MOMENTARY, TOGGLE} type;
   KeyMap mode_map;
-} ModeTarget;
+};
 
-typedef struct
+struct MapTarget
 {
-  Modifiers modifiers;
+  uint8_t modifiers;
   Usage usage;
-} MapTarget;
+};
 
-typedef struct
+struct MacroTarget
 {
   uint8_t length;
   const MapTarget *targets;
-} MacroTarget;
+};
 
 <% $keyboard.maps.each_value do |keymap|
      keymap.keys.each do |location, key| %>

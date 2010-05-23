@@ -40,7 +40,7 @@ const MapTarget <%=ident%>Targets[] =
 
 const MacroTarget <%= ident %> = { <%=kbinding.kbindings.length%>, &<%=ident%>Targets[0] }; <%
          elsif kbinding.instance_of? Mode %>
-const ModeTarget <%= ident %> = { <%=kbinding.type.upcase%>, kbd_map_<%=kbinding.mode%>_mx }; <%
+const ModeTarget <%= ident %> = { ModeTarget::<%=kbinding.type.upcase%>, kbd_map_<%=kbinding.mode%>_mx }; <%
          else
            %><%="/* What? */"%><%
          end
@@ -55,11 +55,11 @@ const ModeTarget <%= ident %> = { <%=kbinding.type.upcase%>, kbd_map_<%=kbinding
 const KeyBinding <%= "#{keymap.ids.last}_#{key.location}" %>[] =
 {<%    key.kbindings.each do |premods, kbinding| %>
   { <%   if kbinding.instance_of? Map
-    %>MAP, <%
+    %>KeyBinding::MAP, <%
          elsif kbinding.instance_of? Macro
-    %>MACRO, <%
+    %>KeyBinding::MACRO, <%
          elsif kbinding.instance_of? Mode
-    %>MODE, <%
+    %>KeyBinding::MODE, <%
          else
     %><%="/* What? */"%>, <%
          end

@@ -1,7 +1,7 @@
 /*
              LUFA Library
      Copyright (C) Dean Camera, 2010.
-              
+
   dean [at] fourwalledcubicle [dot] com
       www.fourwalledcubicle.com
 */
@@ -9,13 +9,13 @@
 /*
   Copyright 2010  Dean Camera (dean [at] fourwalledcubicle [dot] com)
 
-  Permission to use, copy, modify, distribute, and sell this 
+  Permission to use, copy, modify, distribute, and sell this
   software and its documentation for any purpose is hereby granted
-  without fee, provided that the above copyright notice appear in 
+  without fee, provided that the above copyright notice appear in
   all copies and that both that the copyright notice and this
-  permission notice and warranty disclaimer appear in supporting 
-  documentation, and that the name of the author not be used in 
-  advertising or publicity pertaining to distribution of the 
+  permission notice and warranty disclaimer appear in supporting
+  documentation, and that the name of the author not be used in
+  advertising or publicity pertaining to distribution of the
   software without specific, written prior permission.
 
   The author disclaim all warranties with regard to this
@@ -48,12 +48,12 @@
 
 	/* Includes: */
 		#include <avr/io.h>
-		
+
 		#include "../../../Common/Common.h"
 		#include "../HighLevel/USBMode.h"
 		#include "../LowLevel/HostChapter9.h"
 		#include "../HighLevel/StdDescriptors.h"
-		
+
 	/* Enable C linkage for C++ Compilers: */
 		#if defined(__cplusplus)
 			extern "C" {
@@ -63,8 +63,8 @@
 		#if !defined(__INCLUDE_FROM_USB_DRIVER)
 			#error Do not include this file directly. Include LUFA/Drivers/USB.h instead.
 		#endif
-		
-	/* Public Interface - May be used in end-application: */	
+
+	/* Public Interface - May be used in end-application: */
 		/* Macros: */
 			/** Mask for determining the type of an endpoint from an endpoint descriptor. This should then be compared
 			 *  with the EP_TYPE_* masks to determine the exact type of the endpoint.
@@ -104,7 +104,7 @@
 			 *  values can be accessed in the \ref USB_DescriptorTypes_t enum.
 			 */
 			#define DESCRIPTOR_TYPE(DescriptorPtr)    DESCRIPTOR_CAST(DescriptorPtr, USB_Descriptor_Header_t).Type
-			
+
 			/** Returns the descriptor's size, expressed as the 8-bit value indicating the number of bytes. */
 			#define DESCRIPTOR_SIZE(DescriptorPtr)    DESCRIPTOR_CAST(DescriptorPtr, USB_Descriptor_Header_t).Size
 
@@ -158,7 +158,7 @@
 			 *  \endcode
 			 */
 			uint8_t USB_GetNextDescriptorComp(uint16_t* BytesRem, void** CurrConfigLoc, ConfigComparatorPtr_t ComparatorRoutine);
-			
+
 		/* Enums: */
 			/** Enum for the possible return codes of the \ref USB_Host_GetDeviceConfigDescriptor() function. */
 			enum USB_Host_GetConfigDescriptor_ErrorCodes_t
@@ -177,7 +177,7 @@
 				                                        */
 				HOST_GETCONFIG_InvalidData      = 6, /**< The device returned invalid configuration descriptor data */
 			};
-		
+
 			/** Enum for return values of a descriptor comparator function. */
 			enum DSearch_Return_ErrorCodes_t
 			{
@@ -194,7 +194,7 @@
 				DESCRIPTOR_SEARCH_COMP_Fail            = 1, /**< Comparator function returned Descriptor_Search_Fail. */
 				DESCRIPTOR_SEARCH_COMP_EndOfDescriptor = 2, /**< End of configuration descriptor reached before match found. */
 			};
-	
+
 		/* Function Prototypes: */
 			/** Retrieves the configuration descriptor data from an attached device via a standard request into a buffer,
 			 *  including validity and size checking to prevent a buffer overflow.
@@ -261,17 +261,19 @@
 			 * \param[in,out] CurrConfigLoc  Pointer to the current descriptor inside the configuration descriptor
 			 */
 			static inline void USB_GetNextDescriptor(uint16_t* const BytesRem,
-			                                         void** const CurrConfigLoc) 
-			                                         ATTR_NON_NULL_PTR_ARG(1) ATTR_NON_NULL_PTR_ARG(2);									  
+			                                         void** const CurrConfigLoc)
+			                                         ATTR_NON_NULL_PTR_ARG(1) ATTR_NON_NULL_PTR_ARG(2);
 			static inline void USB_GetNextDescriptor(uint16_t* const BytesRem,
 			                                         void** const CurrConfigLoc)
 			{
 				uint16_t CurrDescriptorSize = DESCRIPTOR_CAST(*CurrConfigLoc, USB_Descriptor_Header_t).Size;
 
-				*CurrConfigLoc += CurrDescriptorSize;
+        uint16_t *temp = (uint16_t*)*CurrConfigLoc;
+        temp += CurrDescriptorSize;
+				*CurrConfigLoc = (void*)temp;
 				*BytesRem      -= CurrDescriptorSize;
 			}
-			
+
 	/* Disable C linkage for C++ Compilers: */
 		#if defined(__cplusplus)
 			}

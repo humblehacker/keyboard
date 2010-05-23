@@ -41,7 +41,7 @@ static Modifiers get_modifier(Usage usage);
 typedef struct
 {
   uint32_t  row_data[NUM_ROWS];
-  Modifiers modifiers;
+  uint8_t   modifiers;
   Usage     keys[MAX_KEYS];
   uint8_t   num_keys;
   BoundKey  active_keys[MAX_ACTIVE_CELLS];
@@ -113,7 +113,7 @@ Keyboard__update_bindings(void)
   for (BoundKey* key = Keyboard__first_active_key();
        key;      key = Keyboard__next_active_key())
   {
-    BoundKey__update_binding(key, keyboard.modifiers, keyboard.active_keymap);
+    key->update_binding(keyboard.modifiers, keyboard.active_keymap);
   }
 }
 
@@ -138,8 +138,7 @@ Keyboard__init_active_keys()
         }
         ++ncols;
         key = &keyboard.active_keys[keyboard.num_active_keys++];
-        key->cell = MATRIX_CELL(row, col);
-        key->binding = NULL;
+        key->reinit(MATRIX_CELL(row, col));
       }
     }
 
@@ -170,13 +169,13 @@ Keyboard__momentary_mode_engaged()
   for (BoundKey* key = Keyboard__first_active_key();
        key;      key = Keyboard__next_active_key())
   {
-    if (key->binding->kind == MODE)
+    if (key->binding()->kind == KeyBinding::MODE)
     {
-      ModeTarget *target = (ModeTarget*)key->binding->target;
-      if (target->type == MOMENTARY)
+      ModeTarget *target = (ModeTarget*)key->binding()->target;
+      if (target->type == ModeTarget::MOMENTARY)
       {
         keyboard.active_keymap = target->mode_map;
-        BoundKey__deactivate(key);
+        key->deactivate();
         return true;
       }
     }
@@ -187,18 +186,18 @@ Keyboard__momentary_mode_engaged()
 bool
 Keyboard__modifier_keys_engaged()
 {
-  Modifiers active_modifiers = NONE;
+  uint8_t active_modifiers = NONE;
   for (BoundKey* key = Keyboard__first_active_key();
        key;      key = Keyboard__next_active_key())
   {
-    if (key->binding->kind == MAP)
+    if (key->binding()->kind == KeyBinding::MAP)
     {
-      const MapTarget *target = (const MapTarget*)key->binding->target;
+      const MapTarget *target = (const MapTarget*)key->binding()->target;
       Modifiers this_modifier = NONE;
       if ((this_modifier = get_modifier(target->usage)) != NONE)
       {
         active_modifiers |= this_modifier;
-        BoundKey__deactivate(key);
+        key->deactivate();
       }
     }
   }
@@ -221,13 +220,13 @@ Keyboard__check_mode_toggle(void)
   for (BoundKey* key = Keyboard__first_active_key();
        key;      key = Keyboard__next_active_key())
   {
-    if (key->binding->kind == MODE)
+    if (key->binding()->kind == KeyBinding::MODE)
     {
-      ModeTarget *target = (ModeTarget*)key->binding->target;
-      if (target->type == TOGGLE)
+      ModeTarget *target = (ModeTarget*)key->binding()->target;
+      if (target->type == ModeTarget::TOGGLE)
       {
         Keyboard__toggle_map(target->mode_map);
-        BoundKey__deactivate(key);
+        key->deactivate();
         return;
       }
     }
@@ -240,11 +239,11 @@ Keyboard__process_keys()
   for (BoundKey* key = Keyboard__first_active_key();
        key;      key = Keyboard__next_active_key())
   {
-    if (key->binding->kind == MAP)
+    if (key->binding()->kind == KeyBinding::MAP)
     {
-      const MapTarget *target = (const MapTarget*)key->binding->target;
+      const MapTarget *target = (const MapTarget*)key->binding()->target;
       keyboard.keys[keyboard.num_keys] = target->usage;
-      keyboard.modifiers &= ~key->binding->premods;
+      keyboard.modifiers &= ~key->binding()->premods;
       keyboard.modifiers |= target->modifiers;
       ++keyboard.num_keys;
     }
@@ -302,7 +301,7 @@ Keyboard__first_active_key(void)
 {
   keyboard.curr_active_key = 0;
   BoundKey *key = &keyboard.active_keys[keyboard.curr_active_key];
-  if (key && BoundKey__is_active(key)) return key;
+  if (key && key->is_active()) return key;
   return Keyboard__next_active_key();
 }
 
@@ -313,7 +312,7 @@ Keyboard__next_active_key(void)
   while (!key && keyboard.curr_active_key < keyboard.num_active_keys)
   {
     key = &keyboard.active_keys[++keyboard.curr_active_key];
-    if (!BoundKey__is_active(key))
+    if (!key->is_active())
       key = NULL;
   }
   return key;
