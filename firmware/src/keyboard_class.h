@@ -52,7 +52,7 @@ private:
 
   bool       momentary_mode_engaged();
   bool       modifier_keys_engaged();
-  void       check_mode_toggle();
+  void       maybe_toggle_mode();
   void       process_keys();
   void       toggle_map(KeyMap mode_map);
 
@@ -68,7 +68,7 @@ private:
   const MacroTarget        *_macro;
   bool                      _error_roll_over;
   KeyMap                    _active_keymap;
-  KeyMap                    _current_keymap;
+  KeyMap                    _selected_keymap;
   KeyMap                    _default_keymap;
   USB_KeyboardReport_Data_t _report;
   static Keyboard _instance;

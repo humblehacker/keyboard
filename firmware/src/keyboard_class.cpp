@@ -47,9 +47,9 @@ init()
 {
   init_cols();
 
-  _default_keymap = (KeyMap) pgm_read_word(&kbd_map_mx_default);
-  _current_keymap = _default_keymap;
-  _active_keymap = NULL;
+  _default_keymap  = (KeyMap) pgm_read_word(&kbd_map_mx_default);
+  _selected_keymap = _default_keymap;
+  _active_keymap   = NULL;
 
   reset();
 }
@@ -65,7 +65,7 @@ reset()
 
   _error_roll_over = false;
 
-  _active_keymap = _current_keymap;
+  _active_keymap = _selected_keymap;
 }
 
 uint8_t
@@ -78,13 +78,10 @@ get_report(USB_KeyboardReport_Data_t *report)
 
   if (!_error_roll_over)
   {
-    loop:
-    update_bindings();
-    if (momentary_mode_engaged())
-      goto loop;
-    if (modifier_keys_engaged())
-      goto loop;
-    check_mode_toggle();
+    do
+      update_bindings();
+    while (momentary_mode_engaged() || modifier_keys_engaged());
+    maybe_toggle_mode();
     process_keys();
   }
 
@@ -210,15 +207,15 @@ void
 Keyboard::
 toggle_map(KeyMap mode_map)
 {
-  if (_current_keymap == mode_map)
-    _current_keymap = _default_keymap;
+  if (_selected_keymap == mode_map)
+    _selected_keymap = _default_keymap;
   else
-    _current_keymap = mode_map;
+    _selected_keymap = mode_map;
 }
 
 void
 Keyboard::
-check_mode_toggle(void)
+maybe_toggle_mode(void)
 {
   for (BoundKey* key = _active_keys.first(); key; key = _active_keys.next())
   {
