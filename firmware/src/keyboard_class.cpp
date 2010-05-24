@@ -34,11 +34,11 @@ static Modifiers get_modifier(Usage usage);
 
 Keyboard Keyboard::_instance;
 
-Keyboard *
+Keyboard &
 Keyboard::
 instance()
 {
-  return &_instance;
+  return _instance;
 }
 
 void

@@ -47,7 +47,12 @@
 
 #include <assert.h>
 #include "Keyboard.h"
+#ifndef MATRIX_DISCOVERY_MODE
 #include "keyboard_class.h"
+#else
+#include "matrix_discovery.h"
+#endif
+
 
 /** Buffer to hold the previously generated Keyboard HID report, for comparison purposes inside the HID class driver. */
 uint8_t PrevKeyboardHIDReportBuffer[sizeof(USB_KeyboardReport_Data_t)];
@@ -104,7 +109,11 @@ void SetupHardware()
 
   /* Hardware Initialization */
   LEDs_Init();
-  Keyboard::instance()->init();
+#ifndef MATRIX_DISCOVERY_MODE
+  Keyboard::instance().init();
+#else
+  MatrixDiscovery::instance();
+#endif
   USB_Init();
 
   g_num_lock = g_caps_lock = g_scrl_lock = 0;
@@ -172,7 +181,11 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
                                          const uint8_t ReportType, void* ReportData, uint16_t* ReportSize)
 {
   USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
-  *ReportSize = Keyboard::instance()->get_report(KeyboardReport);
+#ifndef MATRIX_DISCOVERY_MODE
+  *ReportSize = Keyboard::instance().get_report(KeyboardReport);
+#else
+  *ReportSize = MatrixDiscovery::instance().get_report(KeyboardReport);
+#endif
 
   return false;
 }

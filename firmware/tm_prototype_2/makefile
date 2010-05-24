@@ -58,6 +58,9 @@
 # To rebuild project do "make clean" then "make all".
 #----------------------------------------------------------------------------
 
+# Matrix discovery mode
+MATRIX_MODE = 1
+
 
 # MCU name
 MCU = at90usb1287
@@ -152,11 +155,16 @@ SRC =   $(SRCDIR)/Descriptors.c     \
 
 # List C++ source files here. (C dependencies are automatically generated.)
 	
+ifndef MATRIX_MODE
 CPPSRC = $(SRCDIR)/bound_key.cpp      \
 	$(SRCDIR)/active_keys.cpp     \
 	$(SRCDIR)/Keyboard.cpp        \
 	$(SRCDIR)/keyboard_class.cpp  \
 	$(GENERATED)/keymaps.cpp
+else
+CPPSRC = $(SRCDIR)/Keyboard.cpp      \
+	$(SRCDIR)/matrix_discovery.cpp 
+endif
 
 # List Assembler source files here.
 #     Make them always end in a capital .S.  Files ending in a lowercase .s
@@ -167,6 +175,15 @@ CPPSRC = $(SRCDIR)/bound_key.cpp      \
 #     care about how the name is spelled on its command-line.
 ASRC =
 
+# ERB template files for kbgen code generator
+ERBSRC = $(KBGEN_DIR)/templates/binding.erb.c    \
+	 $(KBGEN_DIR)/templates/binding.erb.h    \
+	 $(KBGEN_DIR)/templates/hid_usages.erb.h \
+	 $(KBGEN_DIR)/templates/KeyMap.erb.c     \
+	 $(KBGEN_DIR)/templates/KeyMap.erb.h     \
+	 $(KBGEN_DIR)/templates/keymaps.erb.cpp  \
+	 $(KBGEN_DIR)/templates/keymaps.erb.h    \
+	 $(KBGEN_DIR)/templates/matrix.erb.h     
 
 # Optimization level, can be [0, 1, 2, 3, s]. 
 #     0 = turn off optimization. s = optimize for size.
@@ -199,6 +216,7 @@ CSTANDARD = -std=gnu99
 
 # Place -D or -U options here for C sources
 CDEFS  = -DF_CPU=$(F_CPU)UL -DF_CLOCK=$(F_CLOCK)UL -DBOARD=BOARD_$(BOARD) $(LUFA_OPTS)
+CDEFS += $(HH_DEFS)
 
 
 # Place -D or -U options here for ASM sources
@@ -209,8 +227,11 @@ ADEFS = -DF_CPU=$(F_CPU)
 CPPDEFS = -DF_CPU=$(F_CPU)UL  -DF_CLOCK=$(F_CLOCK)UL -DBOARD=BOARD_$(BOARD) $(LUFA_OPTS)
 #CPPDEFS += -D__STDC_LIMIT_MACROS
 #CPPDEFS += -D__STDC_CONSTANT_MACROS
+CPPDEFS += $(HH_DEFS)
 
-
+ifdef MATRIX_MODE
+HH_DEFS = -DMATRIX_DISCOVERY_MODE
+endif
 
 #---------------- Compiler Options C ----------------
 #  -g*:          generate debugging information
@@ -481,7 +502,7 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 
 # Default target.
-all: begin $(GENERATED)/keymaps.h gccversion sizebefore build checkinvalidevents showliboptions showtarget sizeafter end
+all: begin generate gccversion sizebefore build checkinvalidevents showliboptions showtarget sizeafter end
 
 # Build kspec parser
 $(KBGEN_DIR)/kspec.rb : $(KBGEN_DIR)/kspec.tt
@@ -489,7 +510,7 @@ $(KBGEN_DIR)/kspec.rb : $(KBGEN_DIR)/kspec.tt
 	@cd $(KBGEN_DIR); tt kspec.tt
 
 # Generate header files
-$(GENERATED)/keymaps.h: $(KBGEN_DIR)/kspec.rb $(KBGEN_DIR)/kb.kspec
+$(GENERATED)/keymaps.h: $(KBGEN_DIR)/kspec.rb $(KBGEN_DIR)/kb.kspec $(ERBSRC)
 	@echo Generating code
 	@$(KBGEN) $(KBGEN_DIR)/kb.kspec -I$(LAYOUTS) -O$(GENERATED)
 
@@ -498,6 +519,11 @@ $(KBGEN_DIR)/kb.kspec : $(LAYOUTS)/*.kspec
 	@echo Preprocessing keyboard layouts
 	@$(CPP) -P $(LAYOUT_FILE) $(KBGEN_DIR)/kb.kspec
 
+ifndef MATRIX_MODE
+generate: $(GENERATED)/keymaps.h
+else
+generate:
+endif
 
 # Change the build target to build a HEX file or a library.
 build: elf hex eep lss sym
@@ -797,4 +823,5 @@ $(shell mkdir -p $(GENERATED) 2>/dev/null)
 showtarget begin finish end sizebefore sizeafter  \
 gccversion build elf hex eep lss sym coff extcoff \
 program dfu flip flip-ee dfu-ee clean debug       \
-clean_list clean_binary gdb-config doxygen
+clean_list clean_binary gdb-config doxygen        \
+generated

@@ -45,5 +45,5 @@ const KeyBindingArray kbd_map_<%=kbIdentifier%>_mx[] =
 };
 
 <% if $keyboard.defaultMap == keymap.id %>
-const KeyMap kbd_map_mx_default PROGMEM = &kbd_map_<%=kbIdentifier%>_mx[0];
+const KeyMap kbd_map_mx_default = &kbd_map_<%=kbIdentifier%>_mx[0];
 <% end %>

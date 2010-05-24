@@ -37,7 +37,7 @@ class Keyboard
 {
 public:
   static
-  Keyboard*  instance();
+  Keyboard & instance();
 
   void       init();
   uint8_t    get_report(USB_KeyboardReport_Data_t *report);
