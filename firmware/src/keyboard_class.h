@@ -31,47 +31,47 @@ extern "C" {
 #include "matrix.h"
 #include "binding.h"
 #include "bound_key.h"
-
-#define NUM_MODIFIERS 8
-#define MAX_KEYS      6
-#define MAX_ACTIVE_CELLS (MAX_KEYS + NUM_MODIFIERS)
+#include "active_keys.h"
 
 class Keyboard
 {
 public:
-  static void      init();
-  static void      reset();
+  static
+  Keyboard*  instance();
 
-  static void      scan_matrix();
-
-  static bool      is_error();
-  static uint8_t   fill_report(USB_KeyboardReport_Data_t *report);
-  static bool      is_processing_macro();
-
-  static bool      momentary_mode_engaged();
-  static bool      modifier_keys_engaged();
-  static void      check_mode_toggle();
-  static void      process_keys();
-  static void      toggle_map(KeyMap mode_map);
-
-  static void      update_bindings();
-  static void      init_active_keys();
-  static BoundKey* first_active_key();
-  static BoundKey* next_active_key();
+  void       init();
+  uint8_t    get_report(USB_KeyboardReport_Data_t *report);
 
 private:
-  static uint32_t  row_data[NUM_ROWS];
-  static uint8_t   modifiers;
-  static Usage     keys[MAX_KEYS];
-  static uint8_t   num_keys;
-  static BoundKey  active_keys[MAX_ACTIVE_CELLS];
-  static uint8_t   num_active_keys;
-  static uint8_t   curr_active_key;
-  static const     MacroTarget *macro;
-  static bool      error_roll_over;
-  static KeyMap    active_keymap;
-  static KeyMap    current_keymap;
-  static KeyMap    default_keymap;
+  void       reset();
+
+  void       scan_matrix();
+
+  uint8_t    fill_report(USB_KeyboardReport_Data_t *report);
+  bool       is_processing_macro();
+
+  bool       momentary_mode_engaged();
+  bool       modifier_keys_engaged();
+  void       check_mode_toggle();
+  void       process_keys();
+  void       toggle_map(KeyMap mode_map);
+
+  void       update_bindings();
+  void       init_active_keys();
+  BoundKey*  first_active_key();
+  BoundKey*  next_active_key();
+
+private:
+  uint32_t                  _row_data[NUM_ROWS];
+  uint8_t                   _num_keys;
+  ActiveKeys                _active_keys;
+  const MacroTarget        *_macro;
+  bool                      _error_roll_over;
+  KeyMap                    _active_keymap;
+  KeyMap                    _current_keymap;
+  KeyMap                    _default_keymap;
+  USB_KeyboardReport_Data_t _report;
+  static Keyboard _instance;
 };
 
 #endif // __KEYBOARD_CLASS_H__

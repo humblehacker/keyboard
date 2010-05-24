@@ -134,7 +134,8 @@ LAYOUT_FILE = $(LAYOUTS)/Keyboard.kspec
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC =   $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/DevChapter9.c       \
+SRC =   $(SRCDIR)/Descriptors.c     \
+	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/DevChapter9.c       \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Endpoint.c          \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Host.c              \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/HostChapter9.c      \
@@ -151,11 +152,11 @@ SRC =   $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/DevChapter9.c       \
 
 # List C++ source files here. (C dependencies are automatically generated.)
 	
-CPPSRC = $(SRCDIR)/bound_key.cpp    \
+CPPSRC = $(SRCDIR)/bound_key.cpp      \
+	$(SRCDIR)/active_keys.cpp     \
 	$(SRCDIR)/Keyboard.cpp        \
-	$(SRCDIR)/Descriptors.cpp     \
 	$(SRCDIR)/keyboard_class.cpp  \
-	$(GENERATED)/keymaps.c
+	$(GENERATED)/keymaps.cpp
 
 # List Assembler source files here.
 #     Make them always end in a capital .S.  Files ending in a lowercase .s
@@ -456,13 +457,13 @@ MSG_CREATING_LIBRARY = Creating library:
 # Define all object files.
 OBJx = $(CPPSRC:../%.cpp=%.o) $(SRC:../%.c=%.o) $(ASRC:../%.S=%o) 
 OBJy = $(OBJx:%.c=%.o)
-OBJ  = $(OBJy:%.cc=%.o)
+OBJ  = $(OBJy:%.cpp=%.o)
 OBJDIRS = $(sort $(dir $(basename $(OBJ))))
 
 # Define all listing files.
 LSTx = $(CPPSRC:../%.cpp=%.lst) $(SRC:../%.c=%.lst) $(ASRC:../%.S=%.lst) 
 LSTy = $(LSTx:%.c=%.lst)
-LST = $(LSTy:%.cpp=%.lst)
+LST  = $(LSTy:%.cpp=%.lst)
 
 
 # Compiler flags to generate dependency files.
@@ -519,7 +520,6 @@ lib: $(LIBNAME)
 begin:
 	@echo
 	@echo $(MSG_BEGIN)
-	echo $(LST)
 
 end:
 	@echo $(MSG_END)

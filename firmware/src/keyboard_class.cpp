@@ -22,7 +22,6 @@
 */
 
 #include <string.h>
-#include <limits.h>
 #include <util/delay.h>
 
 #include "Keyboard.h"
@@ -33,54 +32,68 @@
 
 static Modifiers get_modifier(Usage usage);
 
-uint32_t           Keyboard::row_data[NUM_ROWS];
-uint8_t            Keyboard::modifiers;
-Usage              Keyboard::keys[MAX_KEYS];
-uint8_t            Keyboard::num_keys;
-BoundKey           Keyboard::active_keys[MAX_ACTIVE_CELLS];
-uint8_t            Keyboard::num_active_keys;
-uint8_t            Keyboard::curr_active_key;
-const MacroTarget *Keyboard::macro;
-bool               Keyboard::error_roll_over;
-KeyMap             Keyboard::active_keymap;
-KeyMap             Keyboard::current_keymap;
-KeyMap             Keyboard::default_keymap;
+Keyboard Keyboard::_instance;
+
+Keyboard *
+Keyboard::
+instance()
+{
+  return &_instance;
+}
 
 void
-Keyboard::init()
+Keyboard::
+init()
 {
   init_cols();
 
-  default_keymap = (KeyMap) pgm_read_word(&kbd_map_mx_default);
-  current_keymap = default_keymap;
-  active_keymap = NULL;
+  _default_keymap = (KeyMap) pgm_read_word(&kbd_map_mx_default);
+  _current_keymap = _default_keymap;
+  _active_keymap = NULL;
 
-  Keyboard::reset();
+  reset();
 }
 
 void
-Keyboard::reset()
+Keyboard::
+reset()
 {
-  memset(&active_keys[0], UCHAR_MAX, sizeof(active_keys[0])*MAX_ACTIVE_CELLS);
-  num_active_keys = 0;
+  _active_keys.reset();
 
-  memset(&keys[0], UCHAR_MAX, sizeof(keys[0])*MAX_KEYS);
-  num_keys = 0;
+  _num_keys = 0;
+  memset(&_report, 0, sizeof(_report));
 
-  error_roll_over = false;
-  modifiers = NONE;
+  _error_roll_over = false;
 
-  active_keymap = current_keymap;
+  _active_keymap = _current_keymap;
 }
 
-bool
-Keyboard::is_error()
+uint8_t
+Keyboard::
+get_report(USB_KeyboardReport_Data_t *report)
 {
-  return error_roll_over;
+  reset();
+  scan_matrix();
+	init_active_keys();
+
+  if (!_error_roll_over)
+  {
+    loop:
+    update_bindings();
+    if (momentary_mode_engaged())
+      goto loop;
+    if (modifier_keys_engaged())
+      goto loop;
+    check_mode_toggle();
+    process_keys();
+  }
+
+  return fill_report(report);
 }
 
 void
-Keyboard::scan_matrix()
+Keyboard::
+scan_matrix()
 {
   init_cols();
   for (uint8_t row = 0; row < NUM_ROWS; ++row)
@@ -92,26 +105,26 @@ Keyboard::scan_matrix()
 
     // Place data on all column pins for active row into a single
     // 32 bit value.
-		row_data[row] = 0;
-    row_data[row] = read_row_data();
+		_row_data[row] = 0;
+    _row_data[row] = read_row_data();
   }
 }
 
 void
-Keyboard::update_bindings(void)
+Keyboard::
+update_bindings(void)
 {
-  for (BoundKey* key = Keyboard::first_active_key();
-       key;      key = Keyboard::next_active_key())
+  for (BoundKey* key = _active_keys.first(); key; key = _active_keys.next())
   {
-    key->update_binding(modifiers, active_keymap);
+    key->update_binding(_report.Modifier, _active_keymap);
   }
 }
 
 
 void
-Keyboard::init_active_keys()
+Keyboard::
+init_active_keys()
 {
-  BoundKey *key = NULL;
   uint8_t ncols;
   // now process row/column data to get raw keypresses
   for (uint8_t row = 0; row < NUM_ROWS; ++row)
@@ -119,16 +132,14 @@ Keyboard::init_active_keys()
     ncols = 0;
     for (uint8_t col = 0; col < NUM_COLS; ++col)
     {
-      if (row_data[row] & (1UL << col))
+      if (_row_data[row] & (1UL << col))
       {
-        if (num_active_keys > MAX_ACTIVE_CELLS)
+        if (!_active_keys.add_cell(MATRIX_CELL(row, col)))
         {
-          error_roll_over = true;
+          _error_roll_over = true;
           return;
         }
         ++ncols;
-        key = &active_keys[num_active_keys++];
-        key->reinit(MATRIX_CELL(row, col));
       }
     }
 
@@ -143,9 +154,9 @@ Keyboard::init_active_keys()
         // if any other row has a key pressed in the same column as any
         // of the two or more keys pressed in the current row, we have a
         // ghost-key condition.
-        if (row_data[row] & row_data[irow])
+        if (_row_data[row] & _row_data[irow])
         {
-          error_roll_over = true;
+          _error_roll_over = true;
           return;
         }
       }
@@ -154,17 +165,17 @@ Keyboard::init_active_keys()
 }
 
 bool
-Keyboard::momentary_mode_engaged()
+Keyboard::
+momentary_mode_engaged()
 {
-  for (BoundKey* key = Keyboard::first_active_key();
-       key;      key = Keyboard::next_active_key())
+  for (BoundKey* key = _active_keys.first(); key; key = _active_keys.next())
   {
     if (key->binding()->kind == KeyBinding::MODE)
     {
       ModeTarget *target = (ModeTarget*)key->binding()->target;
       if (target->type == ModeTarget::MOMENTARY)
       {
-        active_keymap = target->mode_map;
+        _active_keymap = target->mode_map;
         key->deactivate();
         return true;
       }
@@ -174,11 +185,11 @@ Keyboard::momentary_mode_engaged()
 }
 
 bool
-Keyboard::modifier_keys_engaged()
+Keyboard::
+modifier_keys_engaged()
 {
   uint8_t active_modifiers = NONE;
-  for (BoundKey* key = Keyboard::first_active_key();
-       key;      key = Keyboard::next_active_key())
+  for (BoundKey* key = _active_keys.first(); key; key = _active_keys.next())
   {
     if (key->binding()->kind == KeyBinding::MAP)
     {
@@ -191,31 +202,32 @@ Keyboard::modifier_keys_engaged()
       }
     }
   }
-  modifiers |= active_modifiers;
+  _report.Modifier |= active_modifiers;
   return active_modifiers != NONE;
 }
 
 void
-Keyboard::toggle_map(KeyMap mode_map)
+Keyboard::
+toggle_map(KeyMap mode_map)
 {
-  if (current_keymap == mode_map)
-    current_keymap = default_keymap;
+  if (_current_keymap == mode_map)
+    _current_keymap = _default_keymap;
   else
-    current_keymap = mode_map;
+    _current_keymap = mode_map;
 }
 
 void
-Keyboard::check_mode_toggle(void)
+Keyboard::
+check_mode_toggle(void)
 {
-  for (BoundKey* key = Keyboard::first_active_key();
-       key;      key = Keyboard::next_active_key())
+  for (BoundKey* key = _active_keys.first(); key; key = _active_keys.next())
   {
     if (key->binding()->kind == KeyBinding::MODE)
     {
       ModeTarget *target = (ModeTarget*)key->binding()->target;
       if (target->type == ModeTarget::TOGGLE)
       {
-        Keyboard::toggle_map(target->mode_map);
+        toggle_map(target->mode_map);
         key->deactivate();
         return;
       }
@@ -224,36 +236,35 @@ Keyboard::check_mode_toggle(void)
 }
 
 void
-Keyboard::process_keys()
+Keyboard::
+process_keys()
 {
-  for (BoundKey* key = Keyboard::first_active_key();
-       key;      key = Keyboard::next_active_key())
+  for (BoundKey* key = _active_keys.first(); key; key = _active_keys.next())
   {
     if (key->binding()->kind == KeyBinding::MAP)
     {
       const MapTarget *target = (const MapTarget*)key->binding()->target;
-      keys[num_keys] = target->usage;
-      modifiers &= ~key->binding()->premods;
-      modifiers |= target->modifiers;
-      ++num_keys;
+      _report.KeyCode[_num_keys] = target->usage;
+      _report.Modifier &= ~key->binding()->premods;
+      _report.Modifier |= target->modifiers;
+      ++_num_keys;
     }
   }
 }
 
 uint8_t
-Keyboard::fill_report(USB_KeyboardReport_Data_t *report)
+Keyboard::
+fill_report(USB_KeyboardReport_Data_t *report)
 {
-  if (Keyboard::is_error())
+  if (_error_roll_over)
   {
-    report->Modifier = modifiers;
+    report->Modifier = _report.Modifier;
     for (uint8_t key = 1; key < 7; ++key)
       report->KeyCode[key] = USAGE_ID(HID_USAGE_ERRORROLLOVER);
   }
-  else if (!Keyboard::is_processing_macro())
+  else if (!is_processing_macro())
   {
-    report->Modifier = modifiers;
-    for (uint8_t key = 0; key < num_keys; ++key)
-      report->KeyCode[key] = keys[key];
+    memcpy(report, &_report, sizeof(_report));
   }
   else
   {
@@ -278,34 +289,13 @@ Keyboard::fill_report(USB_KeyboardReport_Data_t *report)
 }
 
 bool
-Keyboard::is_processing_macro()
+Keyboard::
+is_processing_macro()
 {
   return false;
 #if 0 // FIXME
   return g_kb_state.macro != NULL;
 #endif
-}
-
-BoundKey*
-Keyboard::first_active_key(void)
-{
-  curr_active_key = 0;
-  BoundKey *key = &active_keys[curr_active_key];
-  if (key && key->is_active()) return key;
-  return Keyboard::next_active_key();
-}
-
-BoundKey*
-Keyboard::next_active_key(void)
-{
-  BoundKey *key = NULL;
-  while (!key && curr_active_key < num_active_keys)
-  {
-    key = &active_keys[++curr_active_key];
-    if (!key->is_active())
-      key = NULL;
-  }
-  return key;
 }
 
 static

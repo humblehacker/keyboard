@@ -58,32 +58,32 @@ uint8_t PrevKeyboardHIDReportBuffer[sizeof(USB_KeyboardReport_Data_t)];
  */
 //USB_ClassInfo_HID_Device_t Keyboard_HID_Interface =
 //{
-//	.Config =
-//		{
-//			.InterfaceNumber              = 0,
+//  .Config =
+//    {
+//      .InterfaceNumber              = 0,
 //
-//			.ReportINEndpointNumber       = KEYBOARD_EPNUM,
-//			.ReportINEndpointSize         = KEYBOARD_EPSIZE,
-//			.ReportINEndpointDoubleBank   = false,
+//      .ReportINEndpointNumber       = KEYBOARD_EPNUM,
+//      .ReportINEndpointSize         = KEYBOARD_EPSIZE,
+//      .ReportINEndpointDoubleBank   = false,
 //
-//			.PrevReportINBuffer           = PrevKeyboardHIDReportBuffer,
-//			.PrevReportINBufferSize       = sizeof(PrevKeyboardHIDReportBuffer),
-//		},
+//      .PrevReportINBuffer           = PrevKeyboardHIDReportBuffer,
+//      .PrevReportINBufferSize       = sizeof(PrevKeyboardHIDReportBuffer),
+//    },
 //  };
 
 USB_ClassInfo_HID_Device_t Keyboard_HID_Interface =
- 	{
-		/*.Config =*/
-			{
-				/* .InterfaceNumber              = */ 0,
+  {
+    /*.Config =*/
+      {
+        /* .InterfaceNumber              = */ 0,
         /*                                 */
-				/* .ReportINEndpointNumber       = */ KEYBOARD_EPNUM,
-				/* .ReportINEndpointSize         = */ KEYBOARD_EPSIZE,
-				/* .ReportINEndpointDoubleBank   = */ false,
+        /* .ReportINEndpointNumber       = */ KEYBOARD_EPNUM,
+        /* .ReportINEndpointSize         = */ KEYBOARD_EPSIZE,
+        /* .ReportINEndpointDoubleBank   = */ false,
         /*                                 */
-				/* .PrevReportINBuffer           = */ PrevKeyboardHIDReportBuffer,
-				/* .PrevReportINBufferSize       = */ sizeof(PrevKeyboardHIDReportBuffer),
-			},
+        /* .PrevReportINBuffer           = */ PrevKeyboardHIDReportBuffer,
+        /* .PrevReportINBufferSize       = */ sizeof(PrevKeyboardHIDReportBuffer),
+      },
     };
 
 uint8_t g_num_lock, g_caps_lock, g_scrl_lock;
@@ -96,33 +96,33 @@ uint8_t g_num_lock, g_caps_lock, g_scrl_lock;
  */
 int main(void)
 {
-	SetupHardware();
+  SetupHardware();
 
   LEDs_SetAllLEDs(LEDMASK_USB_NOTREADY);
 
-	for (;;)
-	{
-		HID_Device_USBTask(&Keyboard_HID_Interface);
-		USB_USBTask();
-	}
+  for (;;)
+  {
+    HID_Device_USBTask(&Keyboard_HID_Interface);
+    USB_USBTask();
+  }
 }
 
 /** Configures the board hardware and chip peripherals for the demo's functionality. */
 void SetupHardware()
 {
-	/* Disable watchdog if enabled by bootloader/fuses */
-	MCUSR &= ~(1 << WDRF);
-	wdt_disable();
+  /* Disable watchdog if enabled by bootloader/fuses */
+  MCUSR &= ~(1 << WDRF);
+  wdt_disable();
 
-	/* Disable clock division */
-	clock_prescale_set(clock_div_1);
+  /* Disable clock division */
+  clock_prescale_set(clock_div_1);
 
-	/* Hardware Initialization */
-	LEDs_Init();
-	USB_Init();
+  /* Hardware Initialization */
+  LEDs_Init();
+  Keyboard::instance()->init();
+  USB_Init();
 
   /* Task init */
-  Keyboard::init();
 
   g_num_lock = g_caps_lock = g_scrl_lock = 0;
 
@@ -156,23 +156,23 @@ void EVENT_USB_Device_ConfigurationChanged(void)
 {
   LEDs_SetAllLEDs(LEDMASK_USB_READY);
 
-	if (!(HID_Device_ConfigureEndpoints(&Keyboard_HID_Interface)))
+  if (!(HID_Device_ConfigureEndpoints(&Keyboard_HID_Interface)))
     ;
   LEDs_SetAllLEDs(LEDMASK_USB_ERROR);
 
-	USB_Device_EnableSOFEvents();
+  USB_Device_EnableSOFEvents();
 }
 
 /** Event handler for the library USB Unhandled Control Request event. */
 void EVENT_USB_Device_UnhandledControlRequest(void)
 {
-	HID_Device_ProcessControlRequest(&Keyboard_HID_Interface);
+  HID_Device_ProcessControlRequest(&Keyboard_HID_Interface);
 }
 
 /** Event handler for the USB device Start Of Frame event. */
 void EVENT_USB_Device_StartOfFrame(void)
 {
-	HID_Device_MillisecondElapsed(&Keyboard_HID_Interface);
+  HID_Device_MillisecondElapsed(&Keyboard_HID_Interface);
 }
 
 /** HID class driver callback function for the creation of HID reports to the host.
@@ -188,26 +188,10 @@ void EVENT_USB_Device_StartOfFrame(void)
 bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDInterfaceInfo, uint8_t* const ReportID,
                                          const uint8_t ReportType, void* ReportData, uint16_t* ReportSize)
 {
-  Keyboard::reset();
-  Keyboard::scan_matrix();
-	Keyboard::init_active_keys();
+  USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
+  *ReportSize = Keyboard::instance()->get_report(KeyboardReport);
 
-  if (!Keyboard::is_error())
-  {
-    loop:
-    Keyboard::update_bindings();
-    if (Keyboard::momentary_mode_engaged())
-      goto loop;
-    if (Keyboard::modifier_keys_engaged())
-      goto loop;
-    Keyboard::check_mode_toggle();
-    Keyboard::process_keys();
-  }
-
-	USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
-  *ReportSize = Keyboard::fill_report(KeyboardReport);
-
-	return false;
+  return false;
 }
 
 /** HID class driver callback function for the processing of HID reports from the host.
@@ -222,9 +206,9 @@ void CALLBACK_HID_Device_ProcessHIDReport(USB_ClassInfo_HID_Device_t* const HIDI
 {
   uint8_t* LEDReport = (uint8_t*)ReportData;
 
-	g_num_lock  = (*LEDReport & (1<<0));
-	g_caps_lock = (*LEDReport & (1<<1));
-	g_scrl_lock = (*LEDReport & (1<<2));
+  g_num_lock  = (*LEDReport & (1<<0));
+  g_caps_lock = (*LEDReport & (1<<1));
+  g_scrl_lock = (*LEDReport & (1<<2));
 
   LEDs_ChangeLEDs(LED_CAPS|LED_SCRL|LED_NUM, *LEDReport);
 }
