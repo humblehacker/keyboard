@@ -24,7 +24,7 @@
 #include "<%= output.path.sub(/\.c$/, '.h')%>"
 #include "hid_usages.h"
 
-const KeyBindingArray kbd_map_<%=kbIdentifier%>_mx[] PROGMEM =
+const KeyBindingArray kbd_map_<%=kbIdentifier%>_mx[] =
 {
 <% lastcol = flippedMatrix.count
    flippedMatrix.each_index do |iCol| %>
