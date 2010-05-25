@@ -88,7 +88,6 @@ def init(filename, options)
     keymapIdentifier = normalize_filename("#{map.id}")
     $keymapIDs[map.id] = keymapIdentifier
   end
-
 end
 
 # Create header and source files for maps
