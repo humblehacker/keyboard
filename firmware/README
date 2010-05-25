@@ -15,7 +15,7 @@ Usage
 
     MATRIX_MODE = 1
 
-- Edit the file 'matrix_discovery.h' to specify which ports/pins are 
+- Edit the file 'matrix_discovery_defs.h' to specify which ports/pins are 
   connected to your keyboard matrix.  For example, if you connected one of 
   the leads on your keyboard matrix to port D pin 3, you would find and 
   uncomment the line:
