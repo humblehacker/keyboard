@@ -112,7 +112,7 @@ void SetupHardware()
 #ifndef MATRIX_DISCOVERY_MODE
   Keyboard::instance().init();
 #else
-  MatrixDiscovery::instance();
+  MatrixDiscovery::instance().init();
 #endif
   USB_Init();
 

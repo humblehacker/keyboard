@@ -450,7 +450,11 @@ REMOVEDIR = rm -rf
 COPY = cp
 WINSHELL = cmd
 KBGEN_DIR = ../kbgen
-KBGEN = ruby -I$(KBGEN_DIR) $(KBGEN_DIR)/kbgen.rb -O$(GENERATED)
+KBGEN_OPTS = -O$(GENERATED)
+ifdef MATRIX_MODE
+KBGEN_OPTS += --hid-only
+endif
+KBGEN = ruby -I$(KBGEN_DIR) $(KBGEN_DIR)/kbgen.rb $(KBGEN_OPTS)
 
 # Define Messages
 # English
@@ -510,7 +514,7 @@ $(KBGEN_DIR)/kspec.rb : $(KBGEN_DIR)/kspec.tt
 	@cd $(KBGEN_DIR); tt kspec.tt
 
 # Generate header files
-$(GENERATED)/keymaps.h: $(KBGEN_DIR)/kspec.rb $(KBGEN_DIR)/kb.kspec $(ERBSRC)
+$(GENERATED)/hid_usages.h: $(KBGEN_DIR)/kspec.rb $(KBGEN_DIR)/kb.kspec $(ERBSRC)
 	@echo Generating code
 	@$(KBGEN) $(KBGEN_DIR)/kb.kspec -I$(LAYOUTS) -O$(GENERATED)
 
@@ -519,11 +523,7 @@ $(KBGEN_DIR)/kb.kspec : $(LAYOUTS)/*.kspec
 	@echo Preprocessing keyboard layouts
 	@$(CPP) -P $(LAYOUT_FILE) $(KBGEN_DIR)/kb.kspec
 
-ifndef MATRIX_MODE
-generate: $(GENERATED)/keymaps.h
-else
-generate:
-endif
+generate: $(GENERATED)/hid_usages.h
 
 # Change the build target to build a HEX file or a library.
 build: elf hex eep lss sym
