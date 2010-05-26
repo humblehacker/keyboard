@@ -138,6 +138,7 @@ LAYOUT_FILE = $(LAYOUTS)/Keyboard.kspec
 
 # List C source files here. (C dependencies are automatically generated.)
 SRC =   $(SRCDIR)/Descriptors.c     \
+	$(SRCDIR)/hhstdio.c \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/DevChapter9.c       \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Endpoint.c          \
 	$(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Host.c              \
@@ -163,7 +164,8 @@ CPPSRC = $(SRCDIR)/bound_key.cpp      \
 	$(GENERATED)/keymaps.cpp
 else
 CPPSRC = $(SRCDIR)/Keyboard.cpp      \
-	$(SRCDIR)/matrix_discovery.cpp 
+	$(SRCDIR)/matrix_discovery.cpp \
+	$(SRCDIR)/registers.cpp
 endif
 
 # List Assembler source files here.
@@ -188,8 +190,8 @@ ERBSRC = $(KBGEN_DIR)/templates/binding.erb.c    \
 # Optimization level, can be [0, 1, 2, 3, s]. 
 #     0 = turn off optimization. s = optimize for size.
 #     (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
-OPT = s
-#OPT = 0
+#OPT = s
+OPT = 0
 
 
 # Debugging format.
@@ -309,7 +311,7 @@ PRINTF_LIB_MIN = -Wl,-u,vfprintf -lprintf_min
 PRINTF_LIB_FLOAT = -Wl,-u,vfprintf -lprintf_flt
 
 # If this is left blank, then it will use the Standard printf version.
-PRINTF_LIB = 
+PRINTF_LIB =
 #PRINTF_LIB = $(PRINTF_LIB_MIN)
 #PRINTF_LIB = $(PRINTF_LIB_FLOAT)
 

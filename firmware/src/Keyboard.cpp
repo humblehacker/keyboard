@@ -93,6 +93,9 @@ int main(void)
   for (;;)
   {
     HID_Device_USBTask(&Keyboard_HID_Interface);
+#ifdef MATRIX_DISCOVERY_MODE
+//  MatrixDiscovery::instance().scan_matrix();
+#endif
     USB_USBTask();
   }
 }

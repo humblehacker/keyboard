@@ -1,7 +1,9 @@
 #include <util/delay.h>
+#include <stdio.h>
 
 #include "matrix_discovery.h"
-#include "hid_usages.h"
+#include "registers.h"
+#include "hhstdio.h"
 
 MatrixDiscovery MatrixDiscovery::_instance;
 
@@ -11,53 +13,110 @@ void
 MatrixDiscovery::
 init()
 {
-  _output_current_pos = 0;
+  init_stdio();
+  _send_empty_report = false;
   _delay_ms(15000);
-  hid_puts("The HumbleHacker Keyboard firmware\n\tMatrix Discovery Mode\n");
-}
-
-void
-MatrixDiscovery::
-hid_puts(const char *str)
-{
-  strlcat(_output_buffer, str, OUTPUT_BUFSIZE);
+  printf("The HumbleHacker Keyboard firmware\n");
+  printf("------ Matrix Discovery Mode -----\n\n");
+  printf("Press and hold 'ESC'\n");
 }
 
 void
 MatrixDiscovery::
 write_output_char(USB_KeyboardReport_Data_t *report)
 {
-  if (_output_current_pos == OUTPUT_BUFSIZE || !_output_buffer[_output_current_pos])
+  if (_send_empty_report)
   {
-    _output_buffer[0] = '\0';
-    _output_current_pos = 0;
+    memcpy_P(report, &ascii_table[0], sizeof(USB_KeyboardReport_Data_t));
+    _send_empty_report = false;
     return;
   }
 
-  char ch = _output_buffer[_output_current_pos];
-  if (ch == '\\')
+  char ch = popchar();
+  if (!ch)
+    return;
+
+//if (ch == '\\')
+//{
+//  switch ((ch = popchar()))
+//  {
+//  case 'n':
+//    ch = (char)10; break;
+//  case 't':
+//    ch = (char)9;  break;
+//  case 'b':
+//    ch = (char)8;  break;
+//  case '\\':
+//    break;
+//  }
+//}
+
+  memcpy_P(report, &ascii_table[(uint8_t)ch], sizeof(USB_KeyboardReport_Data_t));
+  _send_empty_report = true;
+}
+
+void
+MatrixDiscovery::
+activate_row(int row)
+{
+  Registers &reg = registers[row];
+
+  reg.ddr  |=  reg.bitmask;  // 1 = pin as output
+  reg.port &= ~reg.bitmask;  // 0 = drive pin low
+  _delay_us(20);
+}
+
+bool
+MatrixDiscovery::
+check_column(int col)
+{
+  Registers &reg = registers[col];
+
+  MCUCR |= PUD;
+  _delay_us(20);
+  MCUCR &= ~PUD;
+  _delay_us(20);
+
+  reg.ddr  &= ~reg.bitmask;  // 0 = pin as input
+  reg.port |=  reg.bitmask;  // 1 = activate pull-up
+
+  return (~reg.pin) & reg.bitmask;
+}
+
+void
+MatrixDiscovery::
+scan_matrix()
+{
+  if (!stdout_is_empty())
+    return;
+
+  for (int attempt = 0; attempt < 1; ++attempt)
   {
-    switch ((ch = _output_buffer[++_output_current_pos]))
+    for (int row = 0; row < registers_length; ++row)
     {
-    case 'n':
-      ch = (char)10; break;
-    case 't':
-      ch = (char)9;  break;
-    case 'b':
-      ch = (char)8;  break;
-    case '\\':
-      break;
+      for (int col = 0; col < registers_length; ++col)
+      {
+        activate_row(row);
+        Registers &rreg = registers[row];
+        if (row != col && check_column(col))
+        {
+          Registers &creg = registers[col];
+          printf("Found!\n");
+          printf("\tRow:%d %s\n", row, rreg.name);
+          printf("\tCol:%d %s\n", col, creg.name);
+        }
+      }
     }
   }
-  memcpy_P(report, &ascii_table[(uint8_t)ch], sizeof(USB_KeyboardReport_Data_t));
-  ++_output_current_pos;
+
+  printf("Scan complete\n");
 }
 
 uint8_t
 MatrixDiscovery::
 get_report(USB_KeyboardReport_Data_t *report)
 {
-  if (_output_buffer[_output_current_pos])
+  if (!stdout_is_empty())
   {
     write_output_char(report);
   }

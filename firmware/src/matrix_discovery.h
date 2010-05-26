@@ -6,6 +6,7 @@ extern "C" {
 }
 
 #include "matrix_discovery_defs.h"
+#include "hid_usages.h"
 
 class MatrixDiscovery
 {
@@ -14,16 +15,18 @@ public:
 
   void init();
   uint8_t get_report(USB_KeyboardReport_Data_t *report);
-  void hid_puts(const char *str);
+  void scan_matrix();
+
+private:
   void write_output_char(USB_KeyboardReport_Data_t *report);
+
+  void activate_row(int row);
+  bool check_column(int col);
 
 private:
   static MatrixDiscovery _instance;
-  enum { OUTPUT_BUFSIZE = 128 };
   enum State { LEARN, DISPLAY, AWAITING_INPUT, IDLE } _state;
-  char _output_buffer[OUTPUT_BUFSIZE];
-  char *_output_end_pos;
-  uint8_t _output_current_pos;
+  bool _send_empty_report;
 };
 
 #endif // __MATRIX_DISCOVERY_H__
