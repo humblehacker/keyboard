@@ -63,7 +63,7 @@
 
 
 # MCU name
-MCU = at90usb1287
+MCU = at90usb1286
 
 
 # Target board (see library "Board Types" documentation, NONE for projects not requiring
@@ -83,7 +83,7 @@ BOARD  = USER
 #     does not *change* the processor frequency - it should merely be updated to
 #     reflect the processor speed set externally so that the code can use accurate
 #     software delays.
-F_CPU = 8000000
+F_CPU = 16000000
 
 
 # Input clock frequency.
@@ -522,7 +522,7 @@ $(KBGEN_DIR)/kspec.rb : $(KBGEN_DIR)/kspec.tt
 # Generate header files
 $(OBJDIR)/$(GENERATED)/hid_usages.h: $(KBGEN_DIR)/kspec.rb $(KBGEN_DIR)/kb.kspec $(ERBSRC)
 	@echo Generating code
-	@$(KBGEN) $(KBGEN_DIR)/kb.kspec -I$(LAYOUTS) 
+	@$(KBGEN) $(KBGEN_DIR)/kb.kspec -I$(KBGEN_DIR) -I$(LAYOUTS) 
 
 # Generate combined kspec file
 $(KBGEN_DIR)/kb.kspec : $(LAYOUTS)/*.kspec
