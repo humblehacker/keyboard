@@ -103,7 +103,7 @@ tree = [
           "wx.lib.gridmovers.GridRowMover",
           "wx.html.HtmlHelpController",
           "wx.Menu",
-          "wx.Process",          
+          "wx.Process",
           ["wx.PyApp", [
                 ["wx.App", [
                       "wx.py.PyAlaCarte.App",
@@ -116,7 +116,7 @@ tree = [
                       ["wx.PySimpleApp", [
                             "wx.lib.masked.maskededit.test",]],
                       "wx.PyWidgetTester ",]]]],
-          
+
           "wx.TaskBarIcon",
           ["wx.Timer", [
                 "wx.PyTimer ",]],
