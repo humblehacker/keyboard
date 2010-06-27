@@ -334,7 +334,7 @@ process_keys()
         {
           // Key is arriving, assume others are leaving and block them
           block_others = true;
-          KeyboardReport__add_key(report, target->usage);
+          KeyboardReport__add_key(report, USAGE_ID(target->usage));
           KeyboardReport__reset_modifiers(report, key->binding.premods);
           KeyboardReport__set_modifiers(report, target->modifiers);
           BoundKey__deactivate(key);
