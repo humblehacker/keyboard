@@ -110,10 +110,10 @@ Keyboard__get_report(USB_KeyboardReport_Data_t *report)
     if (!kb.error_roll_over)
     {
       ReportQueue__push();
-      do
+//    do
         update_bindings();
-      while (momentary_mode_engaged() || modifier_keys_engaged());
-      maybe_toggle_mode();
+//    while (momentary_mode_engaged() || modifier_keys_engaged());
+//    maybe_toggle_mode();
       process_keys();
     }
   }
