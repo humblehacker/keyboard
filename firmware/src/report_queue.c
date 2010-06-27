@@ -38,7 +38,7 @@ void
 ReportQueue__init()
 {
   self.front     = 0;
-  self.rear      = 0;
+  self.rear      = -1;
   self.count     = 0;
   self.data_size = sizeof(self.data)/sizeof(self.data[0]);
 }
