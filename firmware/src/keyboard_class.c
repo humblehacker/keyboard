@@ -338,7 +338,6 @@ process_keys()
           KeyboardReport__reset_modifiers(report, key->binding.premods);
           KeyboardReport__set_modifiers(report, target->modifiers);
           BoundKey__deactivate(key);
-          ReportQueue__push();
         }
       }
     }
