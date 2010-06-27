@@ -30,7 +30,7 @@ static struct ReportQueue
   uint8_t   front;
   uint8_t   rear;
   uint8_t   count;
-  RQ_elem_t data[100];
+  RQ_elem_t data[25];
   uint8_t   data_size;
 } self;
 
