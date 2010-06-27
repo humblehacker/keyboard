@@ -321,16 +321,16 @@ process_keys()
     {
       uint8_t current_mods = KeyboardReport__get_modifiers(report);
       const MapTarget *target = KeyBinding__get_map_target(&key->binding);
-      if (ActiveKeys__count(&kb.active_keys) > 1 &&
-          ((current_mods & ~key->binding.premods) | target->modifiers) != current_mods)
+//    if (ActiveKeys__count(&kb.active_keys) > 1 &&
+//        ((current_mods & ~key->binding.premods) | target->modifiers) != current_mods)
       {
-        if (KeyboardReport__has_key(prev_report, target->usage))
-        {
-          // Key is leaving, block it
-          BlockedKeys__block_key(key->cell);
-          BoundKey__deactivate(key);
-        }
-        else
+//      if (KeyboardReport__has_key(prev_report, target->usage))
+//      {
+//        // Key is leaving, block it
+//        BlockedKeys__block_key(key->cell);
+//        BoundKey__deactivate(key);
+//      }
+//      else
         {
           // Key is arriving, assume others are leaving and block them
           block_others = true;
@@ -343,53 +343,53 @@ process_keys()
     }
   }
 
-  // Then, process keys without modifiers
-  for (BoundKey* key = ActiveKeys__first(&kb.active_keys);
-       key;      key = ActiveKeys__next(&kb.active_keys))
-  {
-    if (block_others)
-    {
-      BlockedKeys__block_key(key->cell);
-    }
-    else
-    {
-      switch (key->binding.kind)
-      {
-      case MAP:
-        {
-          const MapTarget *target = KeyBinding__get_map_target(&key->binding);
-          KeyboardReport__add_key(report, target->usage);
-          KeyboardReport__reset_modifiers(report, key->binding.premods);
-          KeyboardReport__set_modifiers(report, target->modifiers);
-          BoundKey__deactivate(key);
-          break;
-        }
-      case MACRO:
-        {
-          const MacroTarget *macro = KeyBinding__get_macro_target(&key->binding);
-          KeyboardReport *report = NULL;
-          for (int i = 0; i < macro->length; ++i)
-          {
-            report = ReportQueue__push();
-            if (!report)  // TODO: ensure macro size < queue capacity
-              break;
-            const MapTarget *target = MacroTarget__get_map_target(macro, i);
-            KeyboardReport__add_key(report, target->usage);
-            KeyboardReport__set_modifiers(report, target->modifiers);
-
-            // add a blank report to simulate key-up
-            report = ReportQueue__push();
-            if (!report)
-              break;
-            KeyboardReport__set_modifiers(report, target->modifiers);
-          }
-          break;
-        }
-      default:
-        break;
-      }
-    }
-  }
+//// Then, process keys without modifiers
+//for (BoundKey* key = ActiveKeys__first(&kb.active_keys);
+//     key;      key = ActiveKeys__next(&kb.active_keys))
+//{
+//  if (block_others)
+//  {
+//    BlockedKeys__block_key(key->cell);
+//  }
+//  else
+//  {
+//    switch (key->binding.kind)
+//    {
+//    case MAP:
+//      {
+//        const MapTarget *target = KeyBinding__get_map_target(&key->binding);
+//        KeyboardReport__add_key(report, target->usage);
+//        KeyboardReport__reset_modifiers(report, key->binding.premods);
+//        KeyboardReport__set_modifiers(report, target->modifiers);
+//        BoundKey__deactivate(key);
+//        break;
+//      }
+//    case MACRO:
+//      {
+//        const MacroTarget *macro = KeyBinding__get_macro_target(&key->binding);
+//        KeyboardReport *report = NULL;
+//        for (int i = 0; i < macro->length; ++i)
+//        {
+//          report = ReportQueue__push();
+//          if (!report)  // TODO: ensure macro size < queue capacity
+//            break;
+//          const MapTarget *target = MacroTarget__get_map_target(macro, i);
+//          KeyboardReport__add_key(report, target->usage);
+//          KeyboardReport__set_modifiers(report, target->modifiers);
+//
+//          // add a blank report to simulate key-up
+//          report = ReportQueue__push();
+//          if (!report)
+//            break;
+//          KeyboardReport__set_modifiers(report, target->modifiers);
+//        }
+//        break;
+//      }
+//    default:
+//      break;
+//    }
+//  }
+//}
 }
 
 uint8_t
