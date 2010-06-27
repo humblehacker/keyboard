@@ -398,16 +398,18 @@ fill_report(USB_KeyboardReport_Data_t *dest_report)
   memset(dest_report, 0, sizeof(*dest_report));
 
   KeyboardReport *report = ReportQueue__pop();
-
-  if (!kb.error_roll_over)
+  if (report)
   {
-    KeyboardReport__copy(report, dest_report);
-  }
-  else
-  {
-    dest_report->Modifier = KeyboardReport__get_modifiers(report);
-    for (uint8_t key = 0; key < 6; ++key)
-      dest_report->KeyCode[key] = USAGE_ID(HID_USAGE_ERRORROLLOVER);
+    if (!kb.error_roll_over)
+    {
+      KeyboardReport__copy(report, dest_report);
+    }
+    else
+    {
+      dest_report->Modifier = KeyboardReport__get_modifiers(report);
+      for (uint8_t key = 0; key < 6; ++key)
+        dest_report->KeyCode[key] = USAGE_ID(HID_USAGE_ERRORROLLOVER);
+    }
   }
   return sizeof(USB_KeyboardReport_Data_t);
 }
