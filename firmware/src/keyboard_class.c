@@ -361,6 +361,7 @@ process_keys()
           KeyboardReport__add_key(report, target->usage);
           KeyboardReport__reset_modifiers(report, key->binding.premods);
           KeyboardReport__set_modifiers(report, target->modifiers);
+          BoundKey__deactivate(key);
           break;
         }
       case MACRO:
