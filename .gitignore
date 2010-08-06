@@ -20,3 +20,4 @@ firmware/kbgen/kspec.rb
 firmware/kbgen/kb.kspec
 firmware/kb_hh1/.generate
 firmware/kb_hh1/build/.generate
+firmware/kspec
